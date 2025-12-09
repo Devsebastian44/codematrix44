@@ -583,5 +583,6 @@ code {
 
 /* Asegura que la imagen no se desborde */
 .Logo {
+	width: 300px;
   height: 220px;
 }
