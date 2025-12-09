@@ -1,0 +1,437 @@
+/* Estilos para pantallas grandes (laptops y escritorios con ancho mayor a 1024px) */
+
+@media (min-width: 1025px) {
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.Perfil {
+		margin-left: 0;
+		flex-shrink: 0;
+	}
+
+	.item, .item2 {
+		margin-left: 30px;
+		max-width: 1000px;
+	}
+
+	.form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 20px;
+	}
+
+	.login-box {
+		width: 100%;
+		max-width: 700px;
+	}
+
+	.container-subtitulo {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.subtitulo {
+		margin-left: 0;
+		margin-top: 150px;
+		position: absolute;
+	}
+
+	.blog {
+		margin-left: 0;
+		margin-top: 200px;
+		position: absolute;
+	}
+
+	.search-container {
+		margin-left: auto;
+		margin-right: 20px;
+	}
+}
+
+/* Tablets en landscape (768px a 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+	.nav {
+		width: 90%;
+		left: 5%;
+	}
+
+	.subtitulo {
+		margin-left: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+	}
+
+	.blog {
+		margin-left: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+	}
+
+	.search-container {
+		margin-left: 20px;
+	}
+
+	.search-bar {
+		width: 25vw;
+		min-width: 200px;
+	}
+
+	.Perfil {
+		display: flex;
+		margin: 35px auto 0;
+		float: none;
+	}
+	
+	.Logo {
+		border-top-left-radius: 1rem;
+		border-top-right-radius: 1rem;
+		border-bottom-right-radius: 0;
+		clip-path: none;
+		width: 100%;
+		height: auto;
+		max-height: 300px;
+		object-fit: cover;
+	}
+	
+	.item, .item2 {
+		margin: 40px auto 0;
+		font-size: 13px;
+		display: flex;
+		flex-direction: column;
+		width: 85%;
+		max-width: 700px;
+	}
+
+	.Articulo {
+		margin: 50px auto 0;
+		width: 85%;
+		max-width: 700px;
+		padding-right: 20px;
+	}
+
+	.Articulo h2 {
+		width: 100%;
+	}
+
+	.categories {
+		margin: 0 auto;
+		padding: 20px;
+		width: 85%;
+	}
+
+	.categoria {
+		width: 100%;
+	}
+
+	.login-box {
+		margin: 250px auto 0;
+		margin-bottom: 100px;
+		width: 80%;
+		max-width: 600px;
+		transform: none;
+	}
+
+	.form {
+		padding: 0 20px;
+	}
+}
+
+/* Tablets en portrait y móviles grandes (481px a 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+	.nav {
+		width: 90%;
+		left: 5%;
+		padding: 10px;
+	}
+
+	.search-container {
+		margin-left: 20px;
+	}
+
+	.search-bar {
+		width: 30vw;
+		min-width: 150px;
+	}
+
+	.suggestions-list {
+		width: 35vw;
+	}
+
+	.subtitulo {
+		margin-left: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+		font-size: 40px;
+	}
+
+	.blog {
+		margin-left: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+	}
+
+	.Perfil {
+		display: flex;
+		margin: 35px auto 0;
+		float: none;
+	}
+	
+	.Logo {
+		border-top-left-radius: 1rem;
+		border-top-right-radius: 1rem;
+		border-bottom-right-radius: 0;
+		clip-path: none;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	
+	.item, .item2 {
+		margin: 40px auto 0;
+		font-size: 13px;
+		display: flex;
+		flex-direction: column;
+		width: 85%;
+	}
+
+	.Articulo {
+		margin: 50px 20px 0;
+		width: calc(100% - 40px);
+		padding-right: 0;
+	}
+
+	.Articulo h2 {
+		width: 100%;
+	}
+
+	.Articulo img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.categories {
+		margin: 0 auto;
+		padding: 20px;
+		width: 85%;
+	}
+
+	.categoria {
+		width: 100%;
+	}
+
+	.login-box {
+		margin: 250px auto 0;
+		margin-bottom: 100px;
+		width: 85%;
+		transform: none;
+	}
+
+	.form {
+		padding: 0 20px;
+	}
+}
+
+/* Móviles (320px a 480px) */
+@media (min-width: 320px) and (max-width: 480px) {
+	.nav {
+		width: 90%;
+		left: 5%;
+		padding: 10px 5px;
+		height: auto;
+		justify-content: flex-start;
+		gap: 5px;
+	}
+
+	.nav__responsive-buttom {
+		display: block;
+		padding: 5px;
+		font-size: 20px;
+	}
+
+	.nav__ul {
+		display: none;
+	}
+
+	.nav__right {
+		flex-grow: 1;
+		justify-content: flex-end;
+	}
+
+	.search-container {
+		margin-left: 10px;
+		padding: 5px;
+		flex-grow: 1;
+	}
+
+	.search-bar {
+		width: 100%;
+		min-width: 0;
+		font-size: 14px;
+		padding-left: 25px;
+	}
+
+	.search-container i {
+		left: 10px;
+		font-size: 12px;
+	}
+
+	.suggestions-list {
+		width: calc(100vw - 60px);
+		left: 0;
+		font-size: 14px;
+	}
+
+	#particles-js {
+		height: 250px;
+	}
+
+	.subtitulo {
+		margin-left: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+		font-size: 35px;
+		margin-top: 100px;
+	}
+
+	.blog {
+		margin-left: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+		margin-top: 150px;
+		font-size: 18px;
+	}
+
+	.Perfil {
+		display: flex;
+		margin: 35px auto 0;
+		float: none;
+		width: 90%;
+		max-width: 250px;
+	}
+
+	.Logo {
+		border-top-left-radius: 1rem;
+		border-top-right-radius: 1rem;
+		border-bottom-right-radius: 0;
+		clip-path: none;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	
+	.item, .item2 {
+		margin: 20px auto 0;
+		font-size: 13px;
+		display: flex;
+		flex-direction: column;
+		width: 90%;
+	}
+
+	.item-texto {
+		padding: 15px;
+	}
+
+	.Articulo {
+		margin: 30px 15px 0;
+		width: calc(100% - 30px);
+		padding-right: 0;
+	}
+
+	.Articulo h2 {
+		width: 100%;
+		font-size: 1.3em;
+	}
+
+	.Articulo img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	pre {
+		width: 100%;
+		overflow-x: auto;
+		font-size: 12px;
+	}
+
+	#arp {
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	.categoria {
+		width: 90%;
+	}
+
+	.categories {
+		margin: 20px auto;
+		padding: 10px;
+		width: 90%;
+	}
+
+	.login-box {
+		margin: 150px auto 0;
+		margin-bottom: 100px;
+		width: 90%;
+		padding: 30px 20px;
+		transform: none;
+	}
+
+	.login-box p:first-child {
+		font-size: 1.3rem;
+	}
+
+	.form {
+		padding: 0 10px;
+	}
+
+	.copyright {
+		font-size: 12px;
+		padding: 15px 10px;
+		text-align: center;
+	}
+}
+
+/* Móviles muy pequeños (menos de 375px) */
+@media (max-width: 374px) {
+	.subtitulo {
+		font-size: 30px;
+		margin-top: 90px;
+	}
+
+	.blog {
+		font-size: 16px;
+		margin-top: 135px;
+	}
+
+	.nav {
+		padding: 8px 3px;
+	}
+
+	.search-bar {
+		font-size: 12px;
+	}
+
+	.item, .item2 {
+		width: 95%;
+		font-size: 12px;
+	}
+
+	.login-box {
+		width: 95%;
+		padding: 25px 15px;
+	}
+}

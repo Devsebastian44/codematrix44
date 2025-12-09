@@ -1,0 +1,107 @@
+---
+const { post } = Astro.props;
+
+// Formatear la fecha
+const formatDate = (date) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(date).toLocaleDateString('es-ES', options);
+};
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={post.data.description}>
+  <meta name="keywords" content={post.data.category}>
+  <meta name="author" content="devsebastian44">
+  
+  <title>{post.data.title} | devsebastian44</title>
+
+  <link rel="icon" href="/Icono.ico">
+  <link rel="stylesheet" href="/CSS/normalize.css">
+  <link rel="stylesheet" href="/CSS/estilo.css">
+  <link rel="stylesheet" href="/CSS/media.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <ul class="nav__ul">
+      <li class="nav__li"><a href="/blog"><i class="fas fa-home"></i> Home</a></li>
+      <li class="nav__li"><a href="/categories"><i class="fa fa-list"></i> Categories</a></li>
+    </ul>
+
+    <div class="nav__right">
+      <button class="nav__responsive-buttom" onclick="toggleMenu()">☰</button>
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-bar" class="search-bar" placeholder="Search">
+        <ul id="suggestions" class="suggestions-list"></ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menú móvil -->
+  <ul class="nav__responsive-ul">
+    <li><a href="/blog"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="/categories"><i class="fa fa-list"></i> Categories</a></li>
+  </ul>
+
+  <!-- FONDO DE PARTICULAS -->
+  <div id="particles-js">
+    <div class="container-subtitulo">
+      <div class="subtitulo">devsebastian44</div>
+      <div class="blog">Blog Personal</div>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container">
+    
+    <!-- PERFIL (igual que en blog.astro) -->
+    <div class="Perfil">
+      <div class="Foto">
+        <img src="https://avatars.githubusercontent.com/u/146502229?v=4" alt="devsebastian44">
+      </div>
+
+      <div class="info">
+        <h2>devsebastian44</h2>
+        <p>
+          Software Developer <br>
+          Cybersecurity Analyst <br>
+          Data Science and AI Student
+        </p>
+      </div>
+
+      <div class="Social">
+        <a href="https://github.com/devsebastian44" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://x.com/devsebastian44/" target="_blank"><i class="devicon-twitter-original"></i></a>
+        <a href="https://app.hackthebox.com/profile/641680" target="_blank"><i class="fa-solid fa-cube"></i></a>
+      </div>
+    </div>
+
+    <!-- CONTENIDO DEL ARTICULO -->
+    <div class="Articulo">
+      <main class="article-content">
+        <slot />
+      </main>
+    </div>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="/JS/script.js" is:inline></script>
+  <script src="/JS/particles.min.js" is:inline></script>
+  <script src="/JS/app.js" is:inline></script>
+
+</body>
+</html>

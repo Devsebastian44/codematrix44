@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Programador, hacker ético, analista de malware. Artículos sobre ciberseguridad y hacking ético.">
+    <meta name="keywords" content="ciberseguridad, hacking ético, análisis de malware, SQLMap, Bettercap, pentesting">
+    <meta name="author" content="devsebastian44">
+    
+    <!-- Meta para redes sociales -->
+    <meta property="og:title" content="devsebastian44 | Ciberseguridad">
+    <meta property="og:description" content="Explora temas sobre hacking ético, ciberseguridad y análisis de malware.">
+    <meta property="og:image" content="URL_de_tu_imagen">
+    <meta property="og:url" content="https://devsebastian44-blog.netlify.app/">
+    
+    <link rel="icon" href="../Icono.ico">
+    <link rel="stylesheet" href="/CSS/normalize.css">
+    <link rel="stylesheet" href="/CSS/estilo.css">
+    <link rel="stylesheet" href="/CSS/media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <title>Categorías | devsebastian44</title>
+</head>
+<body>
+    <nav class="nav">
+        <!-- Menú normal (para escritorio) -->
+        <ul class="nav__ul">
+            <li class="nav__li"><a href="../blog.html"><i class="fas fa-home"></i> Home</a></li>
+            <li class="nav__li"><a href="categories.html"><i class="fa fa-list"></i> Categories</a></li>
+        </ul>
+
+        <!-- Contenedor del botón de menú y la barra de búsqueda -->
+        <div class="nav__right">
+            <button class="nav__responsive-buttom" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+            <!-- Barra de búsqueda -->
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-bar" class="search-bar" placeholder="Search" aria-label="Buscar artículos">
+                <ul id="suggestions" class="suggestions-list"></ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menú desplegable (solo en móviles) -->
+    <ul class="nav__responsive-ul">
+        <li><a href="../blog.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="categories.html"><i class="fa fa-list"></i> Categories</a></li>
+    </ul>
+
+    <div id="particles-js">
+        <div class="container-subtitulo">
+            <div class="subtitulo">devsebastian44</div>
+            <div class="blog">Blog Personal</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="Perfil">
+            <div class="Foto">
+                <img src="https://avatars.githubusercontent.com/u/146502229?v=4" alt="devsebastian44">
+            </div>
+            <div class="info">
+                <h2>devsebastian44</h2>
+                <p>Software Developer<br>Cybersecurity Analyst</p>
+            </div>
+            <div class="Social">
+                <a href="https://github.com/devsebastian44" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/devsebastian44/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://x.com/devsebastian44/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+                    <i class="devicon-twitter-original"></i>
+                </a>
+                <a href="https://app.hackthebox.com/profile/641680" target="_blank" rel="noopener noreferrer" aria-label="HackTheBox">
+                    <i class="fa-solid fa-cube"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="categories">
+            <div class="categoria">
+                <div class="Tema">
+                    <i class="fa-solid fa-folder-open"></i> Explotación
+                </div>
+                <div class="lista">
+                    <a href="/blog/sqlmap"><i class="fa-solid fa-folder"></i> Inyección con Sqlmap</a>
+                </div>
+            </div>
+
+            <div class="categoria">
+                <div class="Tema">
+                    <i class="fa-solid fa-folder-open"></i> Redes
+                </div>
+                <div class="lista">
+                    <a href="/blog/bettercap"><i class="fa-solid fa-folder"></i> Análisis con Bettercap</a>
+                </div>
+            </div>
+
+            <div class="categoria">
+                <div class="Tema">
+                    <i class="fa-solid fa-folder-open"></i> OSINT
+                </div>
+                <div class="lista">
+                    <a href="/blog/dirsearch"><i class="fa-solid fa-folder"></i> Escaneo de directorios web con dirsearch</a>
+                </div>
+            </div>
+
+            <div class="categoria">
+                <div class="Tema">
+                    <i class="fa-solid fa-folder-open"></i> Pentesting
+                </div>
+                <div class="lista">
+                    <a href="/blog/pentesting"><i class="fa-solid fa-folder"></i> Herramientas para escaneo de vulnerabilidades</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/JS/particles.min.js" is:inline></script>
+    <script src="/JS/app.js" is:inline></script>
+    <script src="/JS/script.js" is:inline></script>
+</body>
+</html>

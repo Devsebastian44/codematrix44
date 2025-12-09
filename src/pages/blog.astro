@@ -1,0 +1,154 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Programador, hacker ético, analista de malware. Artículos sobre ciberseguridad y hacking ético.">
+    <meta name="keywords" content="ciberseguridad, hacking ético, análisis de malware, SQLMap, Bettercap, pentesting">
+    <meta name="author" content="devsebastian44">
+    
+    <!-- Meta para redes sociales -->
+    <meta property="og:title" content="devsebastian44 | Ciberseguridad">
+    <meta property="og:description" content="Explora temas sobre hacking ético, ciberseguridad y análisis de malware.">
+    <meta property="og:url" content="devsebastian44-blog.netlify.app">
+    
+    <link rel="icon" href="Icono.ico">
+    <link rel="stylesheet" href="/CSS/normalize.css">
+    <link rel="stylesheet" href="/CSS/estilo.css">
+    <link rel="stylesheet" href="/CSS/media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <title>devsebastian44 | Ciberseguridad y Hacking Ético</title>
+</head>
+<body>
+
+    <nav class="nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><a href="/blog"><i class="fas fa-home"></i> Home</a></li>
+            <li class="nav__li"><a href="/categories"><i class="fa fa-list"></i> Categories</a></li>
+        </ul>
+
+        <div class="nav__right">
+            <button class="nav__responsive-buttom" onclick="toggleMenu()">☰</button>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-bar" class="search-bar" placeholder="Search">
+                <ul id="suggestions" class="suggestions-list"></ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menú móvil -->
+    <ul class="nav__responsive-ul">
+        <li><a href="/blog"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/categories"><i class="fa fa-list"></i> Categories</a></li>
+    </ul>
+
+    <div id="particles-js">
+        <div class="container-subtitulo">
+            <div class="subtitulo">devsebastian44</div>
+            <div class="blog">Blog Personal</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="Perfil">
+            <div class="Foto">
+                <img src="https://avatars.githubusercontent.com/u/146502229?v=4" alt="bl4ck44">
+            </div>
+
+            <div class="info">
+                <h2>devsebastian44</h2>
+                <p>
+                    Software Developer <br>
+                    Cybersecurity Analyst <br>
+                    Data Science and AI Student
+                </p>
+            </div>
+
+            <div class="Social">
+                <a href="https://github.com/devsebastian44" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/devsebastian44/" target="_blank"><i class="devicon-twitter-original"></i></a>
+                <a href="https://app.hackthebox.com/profile/641680" target="_blank"><i class="fa-solid fa-cube"></i></a>
+            </div>
+        </div>
+
+        <div class="Home">
+
+{posts.map(post => (
+  <div class="item">
+    <img
+      src={post.data.image}
+      class="Logo"
+      width="370"
+      height="200"
+      style="float:right;"
+      alt={post.data.title}
+    />
+
+    <div class="item-texto">
+      <a href={`/blog/${post.slug}`} class="link">
+        <h2>{post.data.title}</h2>
+      </a>
+
+      <i class="fa-solid fa-folder"></i> {post.data.category}
+
+      <p>{post.data.description}</p>
+    </div>
+  </div>
+))}
+
+
+        </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="form">
+        <div class="login-box">
+            <p>Contáctame</p>
+            <form id="contact-form" action="https://formspree.io/f/xqapdvpe" method="POST">
+                <div class="user-box">
+                    <input required name="name" type="text">
+                    <label>Nombre</label>
+                </div>
+                <div class="user-box">
+                    <input required name="email" type="email">
+                    <label>Correo</label>
+                </div>
+                <div class="user-box">
+                    <textarea required name="message"></textarea>
+                    <label>Mensaje</label>
+                </div>
+
+                <button type="submit">
+                    <span></span><span></span><span></span><span></span>
+                    Enviar
+                </button>
+            </form>
+
+            <div id="form-message" class="hidden"></div>
+        </div>
+    </div>
+
+    <span class="copyright">Copyright© 2024 | Todos los derechos reservados | devsebastian44</span>
+
+    <!-- JS -->
+    <script src="/JS/script.js" is:inline></script>
+    <script src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js" type="module" is:inline></script>
+    <script src="/JS/particles.min.js" is:inline></script>
+    <script src="/JS/app.js" is:inline></script>
+
+</body>
+</html>
