@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Define un objeto con sugerencias y sus URLs correspondientes.
   // La clave es el texto de la sugerencia y el valor es la URL a la que se redirige.
   const suggestions = {
-      'Inyección con Sqlmap': './Articles/Sqlmap.html', // URL para la sugerencia 'Inyección con Sqlmap'
-      'Análisis con Bettercap': './Articles/Bettercap.html', // URL para la sugerencia 'Análisis con Bettercap'
-      'Análisis con dirsearch': './Articles/dirsearch.html', // URL para la sugerencia 'Análisis con dirsearch'
-      'Herramientas para escaneo de vulnerabilidades': './Articles/pentesting.html', // URL para la sugerencia 'Herramientas para escaneo de vulnerabilidades'
+      'Tendencias Clave en Programación para 2025': '/blog/tendencias-clave', // URL para la sugerencia 'Inyección con Sqlmap'
+      'Ciberseguridad – Amenazas y Defensas': '/blog/amenazas-defensas', // URL para la sugerencia 'Análisis con Bettercap'
+      'Análisis con dirsearch': '/blog/dirsearch', // URL para la sugerencia 'Análisis con dirsearch'
+      'Herramientas para escaneo de vulnerabilidades': '/blog/pentesting', // URL para la sugerencia 'Herramientas para escaneo de vulnerabilidades'
   };
 
   // Obtiene el elemento de la barra de búsqueda del DOM por su ID.

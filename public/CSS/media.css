@@ -123,9 +123,9 @@
 	}
 
 	.categories {
-		margin: 0 auto;
+		margin: 35px auto;
 		padding: 20px;
-		width: 85%;
+		width: 92%;
 	}
 
 	.categoria {
@@ -221,13 +221,29 @@
 	}
 
 	.categories {
-		margin: 0 auto;
-		padding: 20px;
-		width: 85%;
+		margin: 35px auto;
+		padding: 15px;
+		width: 92%;
 	}
 
 	.categoria {
 		width: 100%;
+		overflow: hidden;
+	}
+
+	.Tema {
+		padding: 18px;
+	}
+
+	.lista {
+		padding: 12px 18px;
+	}
+
+	.lista a {
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		margin-left: 15px;
+		padding: 10px 0;
 	}
 
 	.login-box {
@@ -372,14 +388,40 @@
 		object-fit: contain;
 	}
 
-	.categoria {
-		width: 90%;
-	}
-
+	/* Categorías en móvil */
 	.categories {
 		margin: 20px auto;
 		padding: 10px;
-		width: 90%;
+		width: 92%;
+	}
+
+	.categoria {
+		width: 100%;
+		margin-bottom: 20px;
+		overflow: hidden;
+	}
+
+	.Tema {
+		padding: 15px;
+		font-size: 16px;
+	}
+
+	.Tema i {
+		font-size: 14px;
+		margin-right: 8px;
+	}
+
+	.lista {
+		padding: 10px 15px;
+	}
+
+	.lista a {
+		margin-left: 10px;
+		font-size: 14px;
+		padding: 8px 0;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		line-height: 1.5;
 	}
 
 	.login-box {
@@ -428,6 +470,32 @@
 	.item, .item2 {
 		width: 95%;
 		font-size: 12px;
+	}
+
+	/* Categorías móviles pequeños */
+	.categories {
+		width: 92%;
+		padding: 8px;
+	}
+
+	.categoria {
+		width: 100%;
+		margin-bottom: 18px;
+	}
+
+	.Tema {
+		padding: 12px;
+		font-size: 15px;
+	}
+
+	.lista {
+		padding: 8px 12px;
+	}
+
+	.lista a {
+		font-size: 13px;
+		margin-left: 8px;
+		padding: 7px 0;
 	}
 
 	.login-box {
