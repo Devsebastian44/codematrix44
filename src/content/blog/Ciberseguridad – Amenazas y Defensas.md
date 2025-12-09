@@ -1,5 +1,5 @@
 ---
-title: "Ciberseguridad en 2025 – Amenazas y Defensas"
+title: "Ciberseguridad – Amenazas y Defensas"
 description: "Un análisis de las amenazas emergentes como ransomware autónomo, deepfakes y ataques a IoT, junto con las defensas modernas."
 category: "Ciberseguridad"
 image: "/Img/Articles/amenazas-defensas.jpg"
