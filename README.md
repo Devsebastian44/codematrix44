@@ -1,7 +1,7 @@
 # 🧩 CodeMatrix44
 
 <p align="center">
-  <img src="codematrix44.png">
+  <img src="codematrix.png">
 </p>
 
 **CodeMatrix44** es un blog técnico dedicado a compartir conocimientos sobre **programación**, **ciberseguridad**, **ciencia de datos** e **inteligencia artificial**.  
