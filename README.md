@@ -1,43 +1,65 @@
-# Astro Starter Kit: Minimal
+# 🧩 CodeMatrix44
 
-```sh
-npm create astro@latest -- --template minimal
+<p align="center">
+  <img src="codematrix44.png">
+</p>
+
+**CodeMatrix44** es un blog técnico dedicado a compartir conocimientos sobre **programación**, **ciberseguridad**, **ciencia de datos** e **inteligencia artificial**.  
+El objetivo del proyecto es ofrecer un espacio educativo y práctico para estudiantes, profesionales y entusiastas de la tecnología.
+
+---
+
+## 🌐 Sitio web
+
+Puedes visitar el blog en:  
+👉 [https://codematrix44.netlify.app/](https://codematrix44.netlify.app/)
+
+---
+
+## 📚 Contenido del blog
+
+- 🔧 **Programación:** Tutoriales, guías y buenas prácticas en Python, Bash y otros lenguajes.
+- 🛡️ **Ciberseguridad:** Artículos sobre hacking ético, herramientas de seguridad y configuraciones de red.
+- 📊 **Ciencia de datos:** Análisis de datos, visualización y uso de librerías como Pandas y NumPy.
+- 🤖 **Inteligencia Artificial:** Conceptos básicos, modelos de machine learning y aplicaciones prácticas.
+
+---
+
+## ⚙️ Instalación local
+
+
+```bash
+git clone https://github.com/Devsebastian44/codematrix44.git
+cd codematrix44
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## 📂 Estructura del proyecto
 
-Inside of your Astro project, you'll see the following folders and files:
+```
+codematrix44/
+│── public/
+│   ├── CSS/                 # Estilos del sitio
+│   ├── JS/                  # Scripts interactivos
+│   ├── Img/Articles/        # Imágenes para artículos
+│── src/
+│   ├── content/blog/        # Artículos en Markdown
+│   ├── layouts/             # Plantillas Astro
+│   ├── pages/               # Páginas principales del blog
+│── astro.config.mjs         # Configuración de Astro
+│── package.json             # Dependencias del proyecto
+│── tsconfig.json            # Configuración de TypeScript
+│── README.md                # Documentación principal
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 📜 Licencia
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Este proyecto está bajo la licencia **MIT**.  
+Puedes usarlo libremente con fines educativos y de investigación.
