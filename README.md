@@ -63,3 +63,4 @@ codematrix44/
 
 Este proyecto está bajo la licencia **MIT** y **CC BY-NC-SA 4.0**.  
 Puedes usarlo libremente con fines educativos y de investigación.
+
