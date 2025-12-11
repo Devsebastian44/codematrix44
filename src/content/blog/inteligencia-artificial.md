@@ -2,7 +2,7 @@
 title: "Avances en Inteligencia Artificial en 2025"
 description: "Los últimos avances en IA: NLP mejorado, salud personalizada, educación adaptativa, lucha contra el cambio climático y automatización extrema."
 category: "Inteligencia Artificial"
-image: "https://www.eluniverso.com/resizer/v2/KMUBZKSF3ZGERMNCMJQRO7PC5Y.jpg?auth=733e85d70f389bca74dffa4fb689ed1bfafaa7d0a3da5c02e3a804298f7d99b3&width=800&height=450&quality=75&smart=true"
+image: "/Img/Articles/inteligencia-artificial.jpg"
 ---
 
 ### 1. El Salto Cognitivo: De la Literalidad a la Empatía Artificial
