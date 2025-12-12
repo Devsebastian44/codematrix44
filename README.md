@@ -8,7 +8,7 @@ El objetivo del proyecto es ofrecer un espacio educativo y práctico para estudi
 ## 🌐 Sitio web
 
 Puedes visitar el blog en:  
-👉 [https://codematrix44.netlify.app/](https://codematrix44.netlify.app/)
+👉 [https://codematrix44.vercel.app/](https://codematrix44.vercel.app/)
 
 ---
 
