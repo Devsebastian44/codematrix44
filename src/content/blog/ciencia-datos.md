@@ -3,7 +3,7 @@ title: "Ciencia de Datos – Innovaciones Emergentes en 2025"
 description: "Descubre las innovaciones en ciencia de datos: XAI, observabilidad, automatización, IoT y arquitecturas Data Mesh."
 category: "Ciencia de Datos"
 tags: ["ciencia-datos"]
-image: "/Img/Articles/ciencia-datos.png"
+image: "/Img/Articles/ciencia-datos.jpg"
 ---
 
 ### 1. El fin de la "Caja Negra" (XAI + Observabilidad)

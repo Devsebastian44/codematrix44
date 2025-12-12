@@ -1,3 +1,34 @@
+---
+// En tu componente Astro (.astro)
+import { getCollection } from 'astro:content';
+
+// Obtener todos los posts del blog
+const posts = await getCollection('blog');
+
+// Agrupar posts por categoría
+const categorias = posts.reduce((acc, post) => {
+    const categoria = post.data.category || 'Sin categoría';
+    
+    if (!acc[categoria]) {
+        acc[categoria] = [];
+    }
+    
+    acc[categoria].push({
+        titulo: post.data.title,
+        slug: post.slug,
+        url: `/blog/${post.slug}`
+    });
+    
+    return acc;
+}, {});
+
+// Convertir a array y ordenar
+const categoriasArray = Object.entries(categorias).map(([nombre, posts]) => ({
+    nombre,
+    posts
+}));
+---
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -131,44 +162,22 @@
 </div>
         </div>
 
-        <div class="categories">
-            <div class="categoria">
-                <div class="Tema">
-                    <i class="fa-solid fa-folder-open"></i> Programación
-                </div>
-                <div class="lista">
-                    <a href="/blog/tendencias-clave"><i class="fa-solid fa-folder"></i> Tendencias Clave en Programación para 2025</a>
-                </div>
+<div class="categories">
+    {categoriasArray.map(({ nombre, posts }) => (
+        <div class="categoria">
+            <div class="Tema">
+                <i class="fa-solid fa-folder-open"></i> {nombre}
             </div>
-
-            <div class="categoria">
-                <div class="Tema">
-                    <i class="fa-solid fa-folder-open"></i> Ciberseguridad
-                </div>
+            {posts.map(post => (
                 <div class="lista">
-                    <a href="/blog/amenazas-defensas"><i class="fa-solid fa-folder"></i> Ciberseguridad – Amenazas y Defensas</a>
+                    <a href={post.url}>
+                        <i class="fa-solid fa-folder"></i> {post.titulo}
+                    </a>
                 </div>
-            </div>
-
-            <div class="categoria">
-                <div class="Tema">
-                    <i class="fa-solid fa-folder-open"></i> Ciencia de Datos e IA
-                </div>
-                <div class="lista">
-                    <a href="/blog/ciencia-datos"><i class="fa-solid fa-folder"></i> Ciencia de Datos – Innovaciones Emergentes en 2025</a>
-                </div>
-            </div>
-
-            <div class="categoria">
-                <div class="Tema">
-                    <i class="fa-solid fa-folder-open"></i> Inteligencia Artificial
-                </div>
-                <div class="lista">
-                    <a href="/blog/inteligencia-artificial"><i class="fa-solid fa-folder"></i> Avances en Inteligencia Artificial en 2025</a>
-                </div>
-            </div>
-
+            ))}
         </div>
+    ))}
+</div>
     </div>
 
     <footer class="footer">
