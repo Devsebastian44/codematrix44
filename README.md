@@ -1,9 +1,5 @@
 # 🧩 CodeMatrix44
 
-<p align="center">
-  <img src="codematrix.png">
-</p>
-
 **CodeMatrix44** es un blog técnico dedicado a compartir conocimientos sobre **programación**, **ciberseguridad**, **ciencia de datos** e **inteligencia artificial**.  
 El objetivo del proyecto es ofrecer un espacio educativo y práctico para estudiantes, profesionales y entusiastas de la tecnología.
 
