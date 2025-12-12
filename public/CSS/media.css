@@ -242,17 +242,6 @@
 		margin-left: 15px;
 		padding: 10px 0;
 	}
-
-	.login-box {
-		margin: 250px auto 0;
-		margin-bottom: 100px;
-		width: 85%;
-		transform: none;
-	}
-
-	.form {
-		padding: 0 20px;
-	}
 }
 
 /* Móviles (320px a 480px) */
@@ -425,22 +414,6 @@
 		line-height: 1.5;
 	}
 
-	.login-box {
-		margin: 150px auto 0;
-		margin-bottom: 100px;
-		width: 90%;
-		padding: 30px 20px;
-		transform: none;
-	}
-
-	.login-box p:first-child {
-		font-size: 1.3rem;
-	}
-
-	.form {
-		padding: 0 10px;
-	}
-
 	.copyright {
 		font-size: 12px;
 		padding: 15px 10px;
@@ -468,7 +441,7 @@
 		font-size: 12px;
 	}
 
-	.item, .item2 {
+	.item {
 		width: 95%;
 		font-size: 12px;
 	}
@@ -499,8 +472,4 @@
 		padding: 7px 0;
 	}
 
-	.login-box {
-		width: 95%;
-		padding: 25px 15px;
-	}
 }
