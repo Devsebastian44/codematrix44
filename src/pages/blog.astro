@@ -128,22 +128,19 @@ const posts = await getCollection('blog');
                 <h3 class="tags-title">
                     <i class="fa-solid fa-tags"></i> Tags
                 </h3>
-                <div class="tags-container">
-                    <a href="/tags/programacion" class="tag">Programación</a>
-                    <a href="/tags/ciberseguridad" class="tag">Ciberseguridad</a>
-                    <a href="/tags/python" class="tag">Python</a>
-                    <a href="/tags/ia" class="tag">IA</a>
-                    <a href="/tags/data-science" class="tag">Data Science</a>
-                    <a href="/tags/hacking" class="tag">Hacking</a>
-                    <a href="/tags/redes" class="tag">Redes</a>
-                    <a href="/tags/sql" class="tag">SQL</a>
-                </div>
+<div class="tags-container">
+    <a href="#" class="tag" data-tag="programación">Programación</a>
+    <a href="#" class="tag" data-tag="ciberseguridad">Ciberseguridad</a>
+    <a href="#" class="tag" data-tag="ciencia-datos">Ciencia de Datos</a>
+    <a href="#" class="tag" data-tag="ia">IA</a>
+    <!-- etc... -->
+</div>
             </div>
         </div>
 
-        <div class="Home">
+<div class="Home">
 {posts.map(post => (
-  <div class="item">
+  <div class="item" data-tags={post.data.tags?.join(',') || ''} data-category={post.data.category}>
     <img
       src={post.data.image}
       class="Logo"
@@ -164,39 +161,17 @@ const posts = await getCollection('blog');
     </div>
   </div>
 ))}
-        </div>
+</div>
     </div>
 
-    <!-- Formulario -->
-    <div class="form">
-        <div class="login-box">
-            <p>Contáctame</p>
-            <form id="contact-form" action="https://formspree.io/f/xovgkzrb" method="POST">
-                <div class="user-box">
-                    <input required name="name" type="text">
-                    <label>Nombre</label>
-                </div>
-                <div class="user-box">
-                    <input required name="email" type="email">
-                    <label>Correo</label>
-                </div>
-                <div class="user-box">
-                    <textarea required name="message"></textarea>
-                    <label>Mensaje</label>
-                </div>
 
-                <button type="submit">
-                    <span></span><span></span><span></span><span></span>
-                    Enviar
-                </button>
-            </form>
-
-            <div id="form-message" class="hidden"></div>
-        </div>
-    </div>
-
-    <span class="copyright">Copyright© 2024 | Todos los derechos reservados | devsebastian44</span>
-
+<footer class="footer">
+  <div class="footer__divider" aria-hidden="true"></div>
+  <span class="copyright">
+    Copyright© 2024 | Todos los derechos reservados | 
+    <a class="copyright__link" href="https://github.com/Devsebastian44" target="_blank" rel="noopener noreferrer">devsebastian44</a>
+  </span>
+</footer>
     <!-- JS -->
     <script src="/JS/script.js" is:inline></script>
     <script src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js" type="module" is:inline></script>

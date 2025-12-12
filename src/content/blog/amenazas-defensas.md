@@ -2,6 +2,7 @@
 title: "Ciberseguridad – Amenazas y Defensas"
 description: "Un análisis de las amenazas emergentes como ransomware autónomo, deepfakes y ataques a IoT, junto con las defensas modernas."
 category: "Ciberseguridad"
+tags: ["ciberseguridad"]
 image: "/Img/Articles/amenazas-defensas.jpg"
 ---
 

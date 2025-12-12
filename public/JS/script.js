@@ -84,39 +84,114 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Agregar este código a tu archivo script.js o crear uno nuevo
 
-document.getElementById("contact-form").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Evita el comportamiento predeterminado del formulario
-
-    const form = event.target;
-    const formData = new FormData(form);
-    const messageDiv = document.getElementById("form-message");
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        messageDiv.textContent = "Mensaje enviado exitosamente.";
-        messageDiv.className = "success";
-        form.reset(); // Limpia el formulario
-      } else {
-        throw new Error("Hubo un problema al enviar el mensaje.");
-      }
-    } catch (error) {
-      messageDiv.textContent = "Error al enviar el mensaje. Inténtalo de nuevo.";
-      messageDiv.className = "error";
+// Función para filtrar posts por tag
+function filterByTag(tag) {
+    const items = document.querySelectorAll('.item');
+    const allTags = document.querySelectorAll('.tag');
+    
+    // Remover clase active de todos los tags
+    allTags.forEach(t => t.classList.remove('active'));
+    
+    // Si hacemos click en el mismo tag, mostrar todos
+    if (window.currentTag === tag) {
+        items.forEach(item => {
+            item.style.display = 'block';
+        });
+        window.currentTag = null;
+        // Limpiar URL
+        window.history.pushState({}, '', '/blog');
+        return;
     }
+    
+    // Marcar el tag actual como activo
+    const activeTag = document.querySelector(`.tag[data-tag="${tag}"]`);
+    if (activeTag) {
+        activeTag.classList.add('active');
+    }
+    window.currentTag = tag;
+    
+    // Filtrar items
+    let visibleCount = 0;
+    items.forEach(item => {
+        // Obtener los tags del data attribute
+        const itemTagsString = item.getAttribute('data-tags');
+        
+        // Si el item tiene tags, convertir a array y buscar coincidencia exacta
+        if (itemTagsString) {
+            // Separar los tags por coma y limpiar espacios
+            const itemTagsArray = itemTagsString.split(',').map(t => t.trim().toLowerCase());
+            const searchTag = tag.toLowerCase();
+            
+            // Verificar si existe una coincidencia exacta
+            if (itemTagsArray.includes(searchTag)) {
+                item.style.display = 'block';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    
+    // Mostrar mensaje si no hay resultados
+    if (visibleCount === 0) {
+        showNoResultsMessage();
+    } else {
+        removeNoResultsMessage();
+    }
+}
 
-    messageDiv.style.display = "block"; // Muestra el mensaje
-    setTimeout(() => { messageDiv.style.display = "none"; }, 5000); // Oculta el mensaje después de 5s
-  });
+// Función para mostrar mensaje de "no hay resultados"
+function showNoResultsMessage() {
+    removeNoResultsMessage(); // Remover mensaje anterior si existe
+    
+    const home = document.querySelector('.Home');
+    if (!home) return;
+    
+    const message = document.createElement('div');
+    message.className = 'no-results-message';
+    message.innerHTML = `
+        <i class="fa-solid fa-folder-open"></i>
+        <p>No se encontraron artículos para este tag</p>
+    `;
+    home.appendChild(message);
+}
 
+// Función para remover mensaje de "no hay resultados"
+function removeNoResultsMessage() {
+    const message = document.querySelector('.no-results-message');
+    if (message) {
+        message.remove();
+    }
+}
 
-
-
-
-  
+// Inicializar event listeners cuando la página cargue
+document.addEventListener('DOMContentLoaded', function() {
+    const tags = document.querySelectorAll('.tag');
+    
+    // Para la página de blog (con posts)
+    if (document.querySelector('.Home')) {
+        tags.forEach(tag => {
+            tag.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Usar el atributo data-tag en lugar del texto visible
+                const tagValue = this.getAttribute('data-tag');
+                filterByTag(tagValue);
+                
+                // Actualizar URL sin recargar
+                window.history.pushState({}, '', `/blog?tag=${tagValue}`);
+            });
+        });
+        
+        // Verificar si hay un tag en la URL al cargar
+        const urlParams = new URLSearchParams(window.location.search);
+        const tagFromUrl = urlParams.get('tag');
+        if (tagFromUrl) {
+            filterByTag(tagFromUrl);
+        }
+    }
+    // Para páginas de artículos individuales, los links ya funcionan con href
+});

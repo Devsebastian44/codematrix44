@@ -14,9 +14,9 @@
 		flex-shrink: 0;
 	}
 
-	.item, .item2 {
+	.item {
 		margin-left: 40px;
-		max-width: 1000px;
+		max-width: 890px;
 	}
 
 	.form {
@@ -85,6 +85,10 @@
 		min-width: 200px;
 	}
 
+	.sidebar {
+		margin: 40px auto 0;;
+	}
+
 	.Perfil {
 		display: flex;
 		margin: 35px auto 0;
@@ -102,7 +106,7 @@
 		object-fit: cover;
 	}
 	
-	.item, .item2 {
+	.item {
 		margin: 40px auto 0;
 		font-size: 13px;
 		display: flex;
@@ -132,17 +136,6 @@
 		width: 100%;
 	}
 
-	.login-box {
-		margin: 250px auto 0;
-		margin-bottom: 100px;
-		width: 80%;
-		max-width: 600px;
-		transform: none;
-	}
-
-	.form {
-		padding: 0 20px;
-	}
 }
 
 /* Tablets en portrait y móviles grandes (481px a 767px) */
@@ -179,6 +172,10 @@
 		left: 50%;
 		transform: translateX(-50%);
 		text-align: center;
+	}
+
+	.sidebar {
+		margin: 40px auto 0;;
 	}
 
 	.Perfil {
@@ -328,6 +325,10 @@
 		text-align: center;
 		margin-top: 150px;
 		font-size: 18px;
+	}
+
+	.sidebar {
+		margin: 40px auto 0;;
 	}
 
 	.Perfil {
