@@ -376,8 +376,12 @@ i {
 }
 
 .Articulo {
-	margin-left: 30px;
-	padding-right: 200px;
+  background-color: #131318;
+  border-radius: 1rem;
+	margin-left: 40px;
+  margin-top: 35px;
+	margin-right: 200px;
+  margin-bottom: 35px;
 	width: 800px;
 }
 
@@ -401,7 +405,7 @@ code {
 	width: 100%;
 	max-width: 1000px;
 	margin-top: 35px;
-	margin-left: 30px;
+	margin-left: 40px;
 	padding-bottom: 0.5em;
 }
 
@@ -662,4 +666,79 @@ code {
 .Logo {
 	width: 300px;
 	height: 225px;
+}
+
+/* Agregar este CSS al archivo estilo.css */
+
+/* Contenedor sidebar para Perfil y Tags */
+.sidebar {
+    margin-left: 35px;
+    margin-top: 35px;
+    width: 250px;
+}
+
+/* Ajustar el .Perfil para que funcione dentro del sidebar */
+.Perfil {
+    margin-left: 0;
+    margin-top: 0;
+    width: 250px;
+    float: none; /* Remover el float */
+    background-color: #131318;
+    border-radius: 1rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Card de Tags */
+.tags-card {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 230px;
+    background-color: #131318;
+    border-radius: 1rem;
+    padding: 20px;
+}
+
+.tags-title {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tags-title i {
+    color: #70a5a8;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: transparent;
+    border: 1px solid #373d48;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #70a5a8;
+    border-color: #70a5a8;
+    color: #0a0a0d;
+    transform: translateY(-2px);
 }

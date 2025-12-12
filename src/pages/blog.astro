@@ -84,47 +84,64 @@ const posts = await getCollection('blog');
     </div>
 
     <div class="container">
-        <div class="Perfil">
-            <div class="Foto">
-                <img src="https://avatars.githubusercontent.com/u/146502229?v=4" alt="bl4ck44">
+        <!-- Sidebar contenedor para Perfil y Tags -->
+        <div class="sidebar">
+            <div class="Perfil">
+                <div class="Foto">
+                    <img src="https://avatars.githubusercontent.com/u/146502229?v=4" alt="bl4ck44">
+                </div>
+
+                <div class="info">
+                    <h2>devsebastian44</h2>
+                    <p>
+                        Software Developer <br>
+                        Cybersecurity Analyst <br>
+                        Data Science and AI Student
+                    </p>
+                </div>
+
+                <div class="Social">
+                    <!-- GitHub -->
+                    <a href="https://github.com/devsebastian44" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <!-- X (Twitter) -->
+                    <a href="https://x.com/devsebastian44/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+                        <i class="devicon-twitter-original"></i>
+                    </a>
+
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@devsebastian44" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/devsebastian44/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
             </div>
 
-            <div class="info">
-                <h2>devsebastian44</h2>
-                <p>
-                    Software Developer <br>
-                    Cybersecurity Analyst <br>
-                    Data Science and AI Student
-                </p>
+            <!-- Card de Tags -->
+            <div class="tags-card">
+                <h3 class="tags-title">
+                    <i class="fa-solid fa-tags"></i> Tags
+                </h3>
+                <div class="tags-container">
+                    <a href="/tags/programacion" class="tag">Programación</a>
+                    <a href="/tags/ciberseguridad" class="tag">Ciberseguridad</a>
+                    <a href="/tags/python" class="tag">Python</a>
+                    <a href="/tags/ia" class="tag">IA</a>
+                    <a href="/tags/data-science" class="tag">Data Science</a>
+                    <a href="/tags/hacking" class="tag">Hacking</a>
+                    <a href="/tags/redes" class="tag">Redes</a>
+                    <a href="/tags/sql" class="tag">SQL</a>
+                </div>
             </div>
-
-<div class="Social">
-    <!-- GitHub -->
-    <a href="https://github.com/devsebastian44" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <i class="fa-brands fa-github"></i>
-    </a>
-
-    <!-- X (Twitter) -->
-    <a href="https://x.com/devsebastian44/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
-        <i class="devicon-twitter-original"></i>
-    </a>
-
-    <!-- TikTok (agregado según tu orden) -->
-    <a href="https://www.tiktok.com/@devsebastian44" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-        <i class="fa-brands fa-tiktok"></i>
-    </a>
-
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/devsebastian44/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
-
-</div>
-
         </div>
 
         <div class="Home">
-
 {posts.map(post => (
   <div class="item">
     <img
@@ -147,8 +164,6 @@ const posts = await getCollection('blog');
     </div>
   </div>
 ))}
-
-
         </div>
     </div>
 
