@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const suggestions = {
       'Tendencias Clave en Programación para 2025': '/blog/tendencias-clave', // URL para la sugerencia 'Inyección con Sqlmap'
       'Ciberseguridad – Amenazas y Defensas': '/blog/amenazas-defensas', // URL para la sugerencia 'Análisis con Bettercap'
-      'Análisis con dirsearch': '/blog/dirsearch', // URL para la sugerencia 'Análisis con dirsearch'
-      'Herramientas para escaneo de vulnerabilidades': '/blog/pentesting', // URL para la sugerencia 'Herramientas para escaneo de vulnerabilidades'
+      'Avances en Inteligencia Artificial en 2025': '/blog/inteligencia-artifical', // URL para la sugerencia 'Análisis con dirsearch'
+      'Ciencia de Datos – Innovaciones Emergentes en 2025': '/blog/ciencia-datos', // URL para la sugerencia 'Herramientas para escaneo de vulnerabilidades'
   };
 
   // Obtiene el elemento de la barra de búsqueda del DOM por su ID.
