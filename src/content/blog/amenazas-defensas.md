@@ -8,6 +8,7 @@ image: "/Img/Articles/amenazas-defensas.jpg"
 ---
 
 ### 1. La Nueva Dinámica: "Guerra de Algoritmos" (AI vs. AI)
+
 El punto más crítico del texto es la **automatización**.
 * **La Amenaza:** El *Ransomware autónomo* implica que el ataque ocurre a velocidad de máquina, buscando vulnerabilidades y propagándose más rápido de lo que un equipo humano de respuesta puede reaccionar.
 
@@ -16,6 +17,7 @@ El punto más crítico del texto es la **automatización**.
 ---
 
 ### 2. La Crisis de la Identidad y la Confianza
+
 Las tendencias mencionadas atacan los pilares fundamentales de la seguridad: la autenticidad y la confianza.
 * **Ingeniería Social 2.0:** Los *Deepfakes* cambian el juego. Ya no basta con desconfiar de un correo extraño; ahora no puedes confiar en la voz de tu jefe por teléfono o su cara en una videollamada. El ataque se dirige al **humano**, no solo al software.
 
@@ -24,6 +26,7 @@ Las tendencias mencionadas atacan los pilares fundamentales de la seguridad: la 
 ---
 
 ### 3. El Efecto Dominó (Cadena de Suministro e IoT)
+
 El texto resalta la fragilidad de la interconexión.
 * **Cadena de Suministro:** Atacar a un proveedor pequeño para llegar a una gran corporación es la estrategia más eficiente (como vimos históricamente con ataques tipo SolarWinds). Si usas código de terceros (ver análisis anterior sobre Low-Code/Frameworks), heredas sus vulnerabilidades.
 
@@ -32,6 +35,7 @@ El texto resalta la fragilidad de la interconexión.
 ---
 
 ### Análisis de Brechas: Lo que el texto implica pero no explicita
+
 Para tener una visión completa, hay que leer entre líneas:
 
 1.  **La Escasez de Talento:** Si la defensa requiere IA avanzada y análisis predictivo, se necesitan profesionales altamente especializados que sepan configurar y gestionar estas IAs. La brecha de talento será un riesgo en sí mismo.
