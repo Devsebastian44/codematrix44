@@ -4,7 +4,7 @@ description: "Buenas prácticas de programación segura en 2025: desde el shift-
 pubDate: 2025-12-06
 category: "Programación"
 tags: ["programación"]
-image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Secure_coding.jpg"
+image: "/Img/Articles/programación-segura.jpg"
 ---
 
 # Programación Segura – Prácticas Esenciales en 2025
