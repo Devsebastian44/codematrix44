@@ -1,6 +1,7 @@
 ---
 title: "Ciencia de Datos – Innovaciones Emergentes en 2025"
 description: "Descubre las innovaciones en ciencia de datos: XAI, observabilidad, automatización, IoT y arquitecturas Data Mesh."
+pubDate: 2025-12-02
 category: "Ciencia de Datos"
 tags: ["ciencia-datos"]
 image: "/Img/Articles/ciencia-datos.jpg"

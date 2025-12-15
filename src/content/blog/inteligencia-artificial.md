@@ -1,6 +1,7 @@
 ---
 title: "Avances en Inteligencia Artificial en 2025"
 description: "Los últimos avances en IA: NLP mejorado, salud personalizada, educación adaptativa, lucha contra el cambio climático y automatización extrema."
+pubDate: 2025-12-05
 category: "Inteligencia Artificial"
 tags: ["ia"]
 image: "/Img/Articles/inteligencia-artificial.jpg"

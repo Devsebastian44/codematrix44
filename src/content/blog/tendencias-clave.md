@@ -1,6 +1,7 @@
 ---
 title: "Tendencias Clave en Programación para 2025"
 description: "Exploramos las principales tendencias en programación para 2025: IA en desarrollo, edge computing, low-code y seguridad integrada."
+pubDate: 2025-12-06
 category: "Programación"
 tags: ["programación"]
 image: "/Img/Articles/tendencias-programacion.jpg"

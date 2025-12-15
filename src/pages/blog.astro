@@ -1,12 +1,38 @@
 ---
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('blog');
+// Obtener todos los posts y eliminar duplicados por slug
+const allPosts = await getCollection('blog');
+
+// Eliminar duplicados basándose en el slug
+const uniquePosts = allPosts.filter((post, index, self) =>
+    index === self.findIndex((p) => p.slug === post.slug)
+);
+
+// Ordenar por fecha de publicación (más recientes primero)
+const posts = uniquePosts.sort((a, b) => {
+    const dateA = new Date(a.data.pubDate || a.data.date || '2000-01-01');
+    const dateB = new Date(b.data.pubDate || b.data.date || '2000-01-01');
+    return dateB.getTime() - dateA.getTime();
+});
+
+const postsPerPage = 5;
+const totalPages = Math.ceil(posts.length / postsPerPage);
+
+// Pasar todos los posts al cliente para manejar la paginación con JS
+const allPostsData = posts.map(post => ({
+    slug: post.slug,
+    title: post.data.title,
+    description: post.data.description,
+    category: post.data.category,
+    image: post.data.image,
+    tags: post.data.tags || [],
+    pubDate: post.data.pubDate || post.data.date
+}));
 ---
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,8 +75,6 @@ const posts = await getCollection('blog');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@100..900&display=swap" rel="stylesheet">
-
-    <title>CodeMatrix44</title>
 </head>
 <body>
 
@@ -128,50 +152,39 @@ const posts = await getCollection('blog');
                 <h3 class="tags-title">
                     <i class="fa-solid fa-tags"></i> Tags
                 </h3>
-<div class="tags-container">
-    <a href="#" class="tag" data-tag="programación">Programación</a>
-    <a href="#" class="tag" data-tag="ciberseguridad">Ciberseguridad</a>
-    <a href="#" class="tag" data-tag="ciencia-datos">Ciencia de Datos</a>
-    <a href="#" class="tag" data-tag="ia">IA</a>
-    <!-- etc... -->
-</div>
+                <div class="tags-container">
+                    <a href="#" class="tag" data-tag="programación">Programación</a>
+                    <a href="#" class="tag" data-tag="ciberseguridad">Ciberseguridad</a>
+                    <a href="#" class="tag" data-tag="ciencia-datos">Ciencia de Datos</a>
+                    <a href="#" class="tag" data-tag="ia">IA</a>
+                </div>
             </div>
         </div>
 
-<div class="Home">
-{posts.map(post => (
-  <div class="item" data-tags={post.data.tags?.join(',') || ''} data-category={post.data.category}>
-    <img
-      src={post.data.image}
-      class="Logo"
-      width="370"
-      height="200"
-      style="float:right;"
-      alt={post.data.title}
-    />
-
-    <div class="item-texto">
-      <a href={`/blog/${post.slug}`} class="link">
-        <h2>{post.data.title}</h2>
-      </a>
-
-      <i class="fa-solid fa-folder"></i> {post.data.category}
-
-      <p>{post.data.description}</p>
-    </div>
-  </div>
-))}
-</div>
+        <div class="Home" id="posts-container">
+            <!-- Los posts se cargarán dinámicamente con JavaScript -->
+        </div>
     </div>
 
+    <footer class="footer">
+        <div class="footer__divider" aria-hidden="true"></div>
+        <span class="copyright">
+            Copyright© 2024 | Todos los derechos reservados | 
+            <a class="copyright__link" href="https://github.com/Devsebastian44" target="_blank" rel="noopener noreferrer">devsebastian44</a>
+        </span>
+    </footer>
 
-<footer class="footer">
-  <div class="footer__divider" aria-hidden="true"></div>
-  <span class="copyright">
-    Copyright© 2024 | Todos los derechos reservados | 
-    <a class="copyright__link" href="https://github.com/Devsebastian44" target="_blank" rel="noopener noreferrer">devsebastian44</a>
-  </span>
-</footer>
+    <!-- Data para el script de paginación -->
+    <script define:vars={{ allPostsData, postsPerPage, totalPages }}>
+        // Variables globales para la paginación
+        window.blogData = {
+            posts: allPostsData,
+            postsPerPage: postsPerPage,
+            totalPages: totalPages,
+            currentPage: 1
+        };
+    </script>
+
     <!-- JS -->
     <script src="/JS/script.js" is:inline></script>
     <script src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js" type="module" is:inline></script>

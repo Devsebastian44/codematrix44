@@ -1,6 +1,7 @@
 ---
 title: "Ética y Regulación de la Inteligencia Artificial en 2025"
 description: "Un análisis de cómo los gobiernos y empresas están regulando la IA en 2025, abordando transparencia, sesgos y responsabilidad."
+pubDate: 2025-12-04
 category: "Inteligencia Artificial"
 tags: ["ia"]
 image: "/Img/Articles/ética-regulación.jpg"

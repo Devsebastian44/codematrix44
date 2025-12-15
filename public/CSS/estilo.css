@@ -635,3 +635,75 @@ code {
     opacity: 0;
     transform: scale(0.95);
 }
+
+
+/* Estilos de Paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.pagination i {
+    padding: 0px;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #4fc3f7;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination-btn:hover:not(.disabled) {
+    background-color: #70a5a8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 158, 183, 0.4);
+}
+
+.pagination-btn.disabled {
+    background-color: #2a2a2f;
+    color: #666;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagination-current {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    background-color: #4fc3f7;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0 15px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .pagination {
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .pagination-btn,
+    .pagination-current {
+        width: 45px;
+        height: 45px;
+        font-size: 0.95rem;
+    }
+}
