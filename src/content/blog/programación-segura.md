@@ -7,42 +7,207 @@ tags: ["programación"]
 image: "/Img/Articles/programación-segura.jpg"
 ---
 
-### 1. El Desarrollador como "Primer Respondedor" (Shift-Left)
 
-El concepto de *Shift-Left Security* reaparece aquí con fuerza operativa.
-* **El Cambio Cultural:** Antes, seguridad y desarrollo eran equipos enemigos (uno construía, el otro bloqueaba). En 2025, **la seguridad es una propiedad del código**, igual que el rendimiento o la escalabilidad.
-* **La Herramienta:** Al integrar análisis en el IDE (el entorno donde se escribe el código), el desarrollador recibe feedback de seguridad en tiempo real, similar al corrector ortográfico de Word. Se corrige la vulnerabilidad *mientras* se escribe, no semanas después.
+## Introducción
 
----
-
-### 2. Blindaje contra la "Fatiga de las Dependencias"
-
-El punto 3 ataca directamente a la amenaza de "Cadena de Suministro" que vimos en el texto de Ciberseguridad.
-* **La Realidad:** El software moderno es un "Lego" donde el 80% del código proviene de librerías externas.
-* **La Solución:** El escaneo continuo y las actualizaciones automáticas son la única forma de sobrevivir. Un humano no puede rastrear manualmente miles de sub-dependencias; se requiere automatización para evitar que una librería oscura y desactualizada sea la puerta de entrada para un *ransomware*.
+La **programación segura** es el conjunto de principios y prácticas orientadas a desarrollar software resiliente frente a amenazas y vulnerabilidades. En 2025, con aplicaciones altamente distribuidas, arquitecturas cloud-native y un incremento de ataques sofisticados, la seguridad debe integrarse desde el diseño hasta la operación, convirtiéndose en una responsabilidad compartida entre desarrolladores, arquitectos y equipos de seguridad.
 
 ---
 
-### 3. Principios Eternos en Tiempos de IA
+## Principios Fundamentales de Programación Segura
 
-El punto 4 (Validación, Cifrado, Menor Privilegio) nos recuerda algo crucial: **la tecnología cambia, pero los fundamentos no.**
-* **Menor Privilegio = Zero Trust:** Este principio de programación es la implementación a nivel de código de la arquitectura *Zero Trust* (nadie tiene acceso a todo).
-* **Validación de Entradas:** Es la defensa básica contra la inyección de código (SQLi, XSS), que sigue siendo una de las vulnerabilidades más comunes a pesar de los avances.
+### 1. Seguridad desde el Diseño (Security by Design)
+
+La seguridad debe considerarse desde las primeras fases del desarrollo.
+
+**Buenas prácticas:**
+
+* Modelado de amenazas (Threat Modeling)
+* Definición de requisitos de seguridad
+* Arquitecturas seguras por defecto
 
 ---
 
-### 4. Lo que el texto implica (Análisis de Brechas)
+### 2. Principio de Mínimo Privilegio
 
-* **Seguridad de la IA:** El texto menciona usar IA para probar (Punto 2), pero no menciona cómo asegurar la propia IA (evitar que alguien envenene los datos de entrenamiento). Es una meta-seguridad que será vital en 2025.
-* **Fricción Velocidad vs. Seguridad:** Aunque se automatice, la seguridad añade pasos. El texto no aborda la presión comercial por lanzar productos rápido (Time-to-Market) frente a la necesidad de esperar a que pasen los escaneos de seguridad.
+Los componentes y usuarios deben operar con los permisos estrictamente necesarios.
+
+**Aplicaciones comunes:**
+
+* Roles y políticas de acceso
+* Separación de responsabilidades
+* Restricción de privilegios en servicios y APIs
 
 ---
 
-### Resumen Estratégico: Higiene Digital Obligatoria
+### 3. Defensa en Profundidad
 
-| Práctica 2025 | Problema que Resuelve | Cambio en el Día a Día |
-| :--- | :--- | :--- |
-| **Shift-Left en IDE** | Coste exponencial de arreglar bugs tardíos. | El desarrollador ve alertas de seguridad mientras teclea. |
-| **IA en Pruebas** | La incapacidad humana de prever todos los escenarios de ataque. | Tests que "piensan" como un atacante y evolucionan solos. |
-| **Gestión de Dependencias** | Ataques a la cadena de suministro (Software Supply Chain). | El sistema se "auto-cura" actualizando librerías vulnerables. |
-| **Principio de Menor Privilegio** | Movimiento lateral de atacantes dentro del sistema. | Las apps solo piden permisos exactos; si son hackeadas, el daño se contiene. |
+Uso de múltiples capas de seguridad para mitigar fallos individuales.
+
+**Capas típicas:**
+
+* Validación de entradas
+* Controles de acceso
+* Monitoreo y logging
+
+---
+
+## Prácticas Esenciales en el Desarrollo de Software
+
+### 1. Validación y Sanitización de Entradas
+
+Nunca confiar en los datos proporcionados por el usuario.
+
+**Riesgos mitigados:**
+
+* SQL Injection
+* XSS
+* Command Injection
+
+---
+
+### 2. Gestión Segura de Autenticación y Autorización
+
+**Recomendaciones clave:**
+
+* Uso de estándares (OAuth 2.0, OpenID Connect)
+* Autenticación multifactor (MFA)
+* Gestión segura de sesiones y tokens
+
+---
+
+### 3. Manejo Seguro de Credenciales y Secretos
+
+**Buenas prácticas:**
+
+* Nunca almacenar secretos en el código
+* Uso de secret managers
+* Rotación periódica de credenciales
+
+---
+
+### 4. Uso Seguro de Dependencias
+
+Las librerías externas son una fuente común de vulnerabilidades.
+
+**Medidas recomendadas:**
+
+* Análisis de dependencias
+* Actualizaciones frecuentes
+* Uso de repositorios confiables
+
+---
+
+## Seguridad en Aplicaciones Web y APIs
+
+### Protección contra Vulnerabilidades OWASP
+
+**Principales riesgos:**
+
+* Broken Access Control
+* Insecure Design
+* Security Misconfiguration
+* Vulnerable Components
+
+---
+
+### Seguridad en APIs
+
+**Prácticas esenciales:**
+
+* Validación estricta de esquemas
+* Rate limiting
+* Autenticación fuerte
+* Versionado seguro
+
+---
+
+## Automatización de la Seguridad (DevSecOps)
+
+### Integración de Seguridad en CI/CD
+
+La seguridad se automatiza en el pipeline.
+
+**Herramientas comunes:**
+
+* SAST (Static Application Security Testing)
+* DAST (Dynamic Application Security Testing)
+* SCA (Software Composition Analysis)
+
+---
+
+### Infraestructura Segura como Código
+
+**Prácticas clave:**
+
+* Validación de configuraciones
+* Escaneo de IaC
+* Principio de inmutabilidad
+
+---
+
+## Monitoreo y Respuesta
+
+### Logging y Observabilidad
+
+**Objetivos:**
+
+* Detección temprana de incidentes
+* Trazabilidad de acciones
+
+---
+
+### Gestión de Vulnerabilidades
+
+**Ciclo recomendado:**
+
+1. Identificación
+2. Priorización
+3. Remediación
+4. Verificación
+
+---
+
+## Seguridad en Nuevas Tecnologías
+
+### Seguridad en Cloud y Contenedores
+
+**Prácticas esenciales:**
+
+* Configuraciones seguras por defecto
+* Escaneo de imágenes
+* Aislamiento de entornos
+
+---
+
+### Seguridad en IA y Software Automatizado
+
+**Riesgos emergentes:**
+
+* Model poisoning
+* Exposición de datos sensibles
+* Dependencia excesiva de código generado
+
+---
+
+## Beneficios de la Programación Segura
+
+* Reducción de vulnerabilidades
+* Menor costo de incidentes
+* Mayor confianza del usuario
+* Cumplimiento normativo
+
+---
+
+## Tendencias Clave en 2025
+
+* DevSecOps como estándar
+* Seguridad automatizada y continua
+* Mayor énfasis en diseño seguro
+* Integración de IA en detección de vulnerabilidades
+
+---
+
+## Conclusión
+
+En 2025, la programación segura es una competencia esencial para cualquier desarrollador. Adoptar prácticas de seguridad desde el diseño, automatizar controles y mantenerse actualizado frente a nuevas amenazas permite crear software robusto, confiable y alineado con las exigencias actuales del entorno digital.
