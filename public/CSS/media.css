@@ -406,7 +406,8 @@
 
 	.suggestions-list {
 		width: calc(100vw - 60px);
-		left: 0;
+		left: -55px;
+		top: 49px;
 		font-size: 14px;
 	}
 

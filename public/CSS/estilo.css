@@ -285,7 +285,7 @@ img {
 .nav__responsive-ul {
     display: none;
     position: fixed;
-    top: 80px;
+    top: 53px;
     left: 5%;
     width: 90%;
     background: rgba(19, 19, 24, 0.98);
