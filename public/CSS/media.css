@@ -1,5 +1,24 @@
 /* Estilos para pantallas grandes (laptops y escritorios con ancho mayor a 1024px) */
 
+.lista a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    display: flex; /* Cambiar de block a flex */
+    align-items: flex-start; /* Alinear al inicio */
+    gap: 10px; /* Espacio entre icono y texto */
+    padding: 10px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.lista a i {
+    flex-shrink: 0; /* Evitar que el icono se comprima */
+    margin-right: 0; /* Remover margin ya que usamos gap */
+    padding-top: 2px; /* Pequeño ajuste para alineación vertical */
+}
+
 @media (min-width: 1025px) {
 	.container {
 		display: flex;
@@ -381,8 +400,8 @@
 	}
 
 	.search-container i {
-		left: 10px;
 		font-size: 12px;
+		top: 47%;
 	}
 
 	.suggestions-list {
@@ -499,18 +518,21 @@
 		padding: 10px 15px;
 	}
 
-	.lista a {
-		margin-left: 10px;
-		font-size: 14px;
-		padding: 8px 0;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-		line-height: 1.5;
-	}
+    .lista a {
+        margin-left: 10px;
+        font-size: 14px;
+        padding: 8px 0;
+        gap: 8px;
+        line-height: 1.5;
+    }
+    
+    .lista a i {
+        font-size: 14px;
+        padding-top: 3px;
+    }
 
 	.copyright {
 		font-size: 12px;
-		padding: 15px 10px;
 		text-align: center;
 	}
 
@@ -562,7 +584,6 @@
 	}
 
 
-
 	.subtitulo {
 		font-size: 30px;
 		margin-top: 90px;
@@ -584,7 +605,18 @@
 	.item {
 		width: 95%;
 		font-size: 12px;
+		margin: 20px auto 0;
 	}
+
+	.Logo {
+		border-top-left-radius: 1rem;
+		border-top-right-radius: 1rem;
+		border-bottom-right-radius: 0;
+		clip-path: none;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+  }
 
 	/* Categorías móviles pequeños */
 	.categories {

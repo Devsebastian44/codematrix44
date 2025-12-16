@@ -87,10 +87,10 @@ img {
 /* Estilos generales */
 .nav {
     margin: 0;
-    padding: 10px;
+    padding: 10px 20px;
     position: fixed;
     width: 86%;
-	height: 60px;
+    height: 60px;
     left: 5%;
     z-index: 10;
     display: flex;
@@ -98,8 +98,8 @@ img {
     justify-content: space-between;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
-    background: rgba(19, 19, 24, 0.5);  /* Fondo con transparencia */
-    backdrop-filter: blur(8px);  /* Difuminado */
+    background: rgba(19, 19, 24, 0.5);
+    backdrop-filter: blur(8px);
 }
 
 /* Menú de escritorio */
@@ -107,62 +107,207 @@ img {
     display: flex;
     list-style: none;
     padding: 0;
+    gap: 10px;
 }
 
 .nav__li {
-    padding: 10px;
+    padding: 0;
 }
 
 .nav__li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
     color: white;
     text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Alinear iconos con el mismo ancho */
+.nav__li a i {
+    width: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Efecto de fondo al hover */
+.nav__li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(112, 165, 168, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav__li a:hover::before {
+    left: 100%;
+}
+
+.nav__li a:hover {
+    background-color: rgba(112, 165, 168, 0.15);
+    color: #70a5a8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(112, 165, 168, 0.2);
+}
+
+/* Efecto en el icono */
+.nav__li a i {
+    transition: all 0.3s ease;
+}
+
+.nav__li a:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: #70a5a8;
+}
+
+/* Link activo */
+.nav__li a.active {
+    background-color: rgba(112, 165, 168, 0.2);
+    color: #70a5a8;
+    box-shadow: 0 2px 8px rgba(112, 165, 168, 0.3);
+}
+
+.nav__li a.active i {
+    color: #70a5a8;
 }
 
 /* Contenedor derecho (botón de menú y buscador) */
 .nav__right {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    margin-left: auto;
 }
 
-/* Barra de búsqueda */
+/* Barra de búsqueda mejorada */
 .search-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    display: inline-block;
+    padding: 0;
+    position: relative;
+}
+
+.search-container i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #70a5a8;
+    transition: all 0.3s ease;
+    z-index: 1;
 }
 
 .search-bar {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    width: 20vw;
+    max-width: 500px;
+    padding: 10px 15px 10px 35px;
+    border: 1px solid rgba(112, 165, 168, 0.3);
+    background-color: rgba(19, 19, 24, 0.8);
+    border-radius: 1rem;
+    box-sizing: border-box;
+    color: white;
+    transition: all 0.3s ease;
+    font-size: 14px;
 }
 
-/* Botón de menú (oculto en escritorio) */
-.nav__responsive-buttom {
+.search-bar:focus {
+    outline: none;
+    border-color: #70a5a8;
+    background-color: rgba(19, 19, 24, 0.95);
+    box-shadow: 0 0 0 3px rgba(112, 165, 168, 0.1);
+}
+
+.search-bar:focus + .search-container i {
+    color: #70a5a8;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Lista de sugerencias mejorada */
+.suggestions-list {
+    margin-top: 10px;
+    width: 25vw;
+    list-style-type: none;
+    padding: 5px;
+    border: 1px solid rgba(112, 165, 168, 0.3);
+    border-radius: 1rem;
+    background-color: rgba(19, 19, 24, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    z-index: 100;
     display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.suggestions-list li {
+    padding: 12px 15px;
     cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
     color: white;
 }
 
-/* Fix para el menú desplegable móvil */
+.suggestions-list li:hover {
+    background-color: rgba(112, 165, 168, 0.2);
+    padding-left: 20px;
+    color: #70a5a8;
+}
+
+/* Botón de menú responsive */
+.nav__responsive-buttom {
+    display: none;
+    background: rgba(112, 165, 168, 0.1);
+    border: 1px solid rgba(112, 165, 168, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.nav__responsive-buttom:hover {
+    background: rgba(112, 165, 168, 0.2);
+    border-color: #70a5a8;
+    color: #70a5a8;
+    transform: scale(1.05);
+}
+
+/* Menú móvil mejorado */
 .nav__responsive-ul {
     display: none;
     position: fixed;
-    top: 44px; /* Ajustado para que aparezca debajo del nav */
+    top: 80px;
     left: 5%;
-    width: 92%; /* Ancho completo en móviles */
+    width: 90%;
     background: rgba(19, 19, 24, 0.98);
     backdrop-filter: blur(10px);
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px 0;
     list-style: none;
     text-align: left;
-    z-index: 100; /* Muy alto para estar sobre todo */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .nav__responsive-ul.active {
@@ -170,12 +315,8 @@ img {
 }
 
 .nav__responsive-ul li {
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav__responsive-ul li:last-child {
-    border-bottom: none;
+    padding: 0;
+    margin: 5px 10px;
 }
 
 .nav__responsive-ul a {
@@ -184,82 +325,46 @@ img {
     font-size: 16px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 .nav__responsive-ul a:hover {
+    background-color: rgba(112, 165, 168, 0.15);
+    color: #70a5a8;
+    padding-left: 25px;
+}
+
+.nav__responsive-ul a i {
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.nav__responsive-ul a:hover i {
+    transform: scale(1.2) rotate(5deg);
     color: #70a5a8;
 }
 
-
-/* Asegurar que el nav tenga z-index alto */
-.nav {
-    z-index: 50;
+/* Scrollbar personalizado para sugerencias */
+.suggestions-list::-webkit-scrollbar {
+    width: 6px;
 }
 
-
-
-button {
-    background-color: #131318;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    cursor: pointer;
+.suggestions-list::-webkit-scrollbar-track {
+    background: rgba(19, 19, 24, 0.5);
+    border-radius: 10px;
 }
 
-.search-container {
-    display: inline-block;
-	margin-left: 655px;
-	padding: 15px;
-	position: relative;
+.suggestions-list::-webkit-scrollbar-thumb {
+    background: #70a5a8;
+    border-radius: 10px;
 }
 
-.search-container i {
-	position: absolute;
-	left: 22px;
-	top: 42%;
-	transform: translateY(-50%);
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+    background: #5a9194;
 }
-
-.search-bar {
-	width: 20vw;
-    max-width: 500px;
-	padding-left: 30px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-    border: 1px solid white;
-	background-color: #131318;
-    border-radius: 1rem;
-    box-sizing: border-box;
-	color: white;
-}
-
-
-/* Lista de sugerencias */
-.suggestions-list {
-	margin-top: 10px;
-    width: 25vw;
-    list-style-type: none;
-    padding: 0;
-    border: 1px solid white;
-    border-radius: 1rem;
-    background-color: #131318;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    z-index: 2;
-    display: none;
-}
-
-.suggestions-list li {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.suggestions-list li:hover {
-    background-color: #373d48;
-	border-radius: 1rem;
-}
-
   
 button {
 	padding: 10px 20px;
@@ -345,10 +450,6 @@ p {
 	color: #70a5a8;
 }
 
-
-i {
-	padding-top: 10px;
-}
 
 .item-texto i {
 	background-color: #70a5a8;
@@ -647,7 +748,7 @@ code {
     justify-content: center;
     width: 50px;
     height: 50px;
-    background-color: #4fc3f7;
+    background-color: #70a5a8;
     color: white;
     border-radius: 8px;
     text-decoration: none;
@@ -675,7 +776,7 @@ code {
     justify-content: center;
     min-width: 50px;
     height: 50px;
-    background-color: #4fc3f7;
+    background-color: #70a5a8;
     color: white;
     border-radius: 8px;
     font-weight: 600;
