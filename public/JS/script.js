@@ -246,7 +246,7 @@ function showNoResultsMessage() {
 }
 
 // ============================================
-// FUNCIONALIDAD DE BÚSQUEDA
+// FUNCIONALIDAD DE BÚSQUEDA DINÁMICA
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -266,14 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPosts(currentPage);
     }
 
-    // Define un objeto con sugerencias y sus URLs correspondientes.
-    const suggestions = {
-        'Tendencias Clave en Programación para 2025': '/blog/tendencias-clave',
-        'Ciberseguridad – Amenazas y Defensas': '/blog/amenazas-defensas',
-        'Avances en Inteligencia Artificial en 2025': '/blog/inteligencia-artifical',
-        'Ciencia de Datos – Innovaciones Emergentes en 2025': '/blog/ciencia-datos',
-    };
-
     // Obtiene el elemento de la barra de búsqueda del DOM por su ID.
     const searchBar = document.getElementById('search-bar');
     
@@ -281,63 +273,118 @@ document.addEventListener('DOMContentLoaded', () => {
     const suggestionsList = document.getElementById('suggestions');
 
     if (searchBar && suggestionsList) {
+        // Variable para debounce
+        let searchTimeout;
+
         // Añade un listener de evento para detectar cambios en el campo de búsqueda.
         searchBar.addEventListener('input', function() {
+            // Cancela el timeout anterior si existe
+            clearTimeout(searchTimeout);
+
             // Obtiene el valor actual del campo de búsqueda y lo convierte a minúsculas.
-            const query = searchBar.value.toLowerCase();
+            const query = searchBar.value.toLowerCase().trim();
             
-            // Limpia la lista de sugerencias anterior para mostrar las nuevas sugerencias.
+            // Limpia la lista de sugerencias anterior
             suggestionsList.innerHTML = '';
 
-            // Verifica si el campo de búsqueda no está vacío.
-            if (query) {
-                // Filtra las sugerencias basadas en si el texto de la sugerencia incluye la consulta.
-                const filteredSuggestions = Object.keys(suggestions).filter(item => item.toLowerCase().includes(query));
+            // Verifica si el campo de búsqueda no está vacío
+            if (query.length >= 2) {
+                // Muestra un indicador de carga
+                suggestionsList.style.display = 'block';
+                const loadingItem = document.createElement('li');
+                loadingItem.classList.add('loading-results');
+                loadingItem.textContent = 'Buscando...';
+                suggestionsList.appendChild(loadingItem);
 
-                // Verifica si hay sugerencias filtradas.
-                if (filteredSuggestions.length > 0) {
-                    // Muestra la lista de sugerencias.
-                    suggestionsList.style.display = 'block';
+                // Espera 300ms antes de hacer la búsqueda (debounce)
+                searchTimeout = setTimeout(() => {
+                    // Limpia el indicador de carga
+                    suggestionsList.innerHTML = '';
+                    
+                    // Verifica que tengamos los datos del blog
+                    if (!window.blogData || !window.blogData.posts) {
+                        const errorItem = document.createElement('li');
+                        errorItem.classList.add('error-results');
+                        errorItem.textContent = 'Error: No se encontraron posts';
+                        suggestionsList.appendChild(errorItem);
+                        return;
+                    }
 
-                    // Recorre cada sugerencia filtrada y crea un elemento de lista para cada una.
-                    filteredSuggestions.forEach(suggestion => {
-                        // Crea un nuevo elemento de lista.
-                        const listItem = document.createElement('li');
+                    const posts = window.blogData.posts;
+                    
+                    // Filtra los posts basándose en título, descripción o tags
+                    const filteredPosts = posts.filter(post => {
+                        const titleMatch = post.title.toLowerCase().includes(query);
+                        const descriptionMatch = post.description?.toLowerCase().includes(query);
+                        const categoryMatch = post.category?.toLowerCase().includes(query);
+                        const tagMatch = post.tags?.some(tag => tag.toLowerCase().includes(query));
                         
-                        // Establece el texto del elemento de lista con la sugerencia.
-                        listItem.textContent = suggestion;
-                        
-                        // Añade un listener de evento para manejar el clic en la sugerencia.
-                        listItem.addEventListener('click', () => {
-                            // Redirige al usuario a la URL correspondiente a la sugerencia seleccionada.
-                            window.location.href = suggestions[suggestion];
-                            
-                            // Limpia la lista de sugerencias después del clic.
-                            suggestionsList.innerHTML = '';
-                            
-                            // Limpia el campo de búsqueda.
-                            searchBar.value = '';
-                        });
-
-                        // Añade el elemento de lista a la lista de sugerencias.
-                        suggestionsList.appendChild(listItem);
+                        return titleMatch || descriptionMatch || categoryMatch || tagMatch;
                     });
-                } else {
-                    // Oculta la lista de sugerencias si no hay coincidencias.
-                    suggestionsList.style.display = 'none';
-                }
+
+                    // Verifica si hay posts filtrados
+                    if (filteredPosts.length > 0) {
+                        // Muestra la lista de sugerencias
+                        suggestionsList.style.display = 'block';
+
+                        // Mostrar TODOS los posts (sin límite)
+                        filteredPosts.forEach(post => {
+                            // Crea un nuevo elemento de lista
+                            const listItem = document.createElement('li');
+                            listItem.classList.add('suggestion-item');
+                            
+                            // Crea el contenido del item solo con el título
+                            const titleDiv = document.createElement('div');
+                            titleDiv.classList.add('suggestion-title');
+                            titleDiv.textContent = post.title;
+                            
+                            listItem.appendChild(titleDiv);
+                            
+                            // Añade un listener de evento para manejar el clic en la sugerencia
+                            listItem.addEventListener('click', () => {
+                                // Redirige al usuario a la URL del post
+                                window.location.href = `/blog/${post.slug}`;
+                            });
+
+                            // Añade el elemento de lista a la lista de sugerencias
+                            suggestionsList.appendChild(listItem);
+                        });
+                    } else {
+                        // Muestra mensaje de no encontrado
+                        suggestionsList.style.display = 'block';
+                        const noResults = document.createElement('li');
+                        noResults.classList.add('no-results');
+                        noResults.textContent = 'No se encontraron resultados';
+                        suggestionsList.appendChild(noResults);
+                    }
+                }, 300);
+            } else if (query.length > 0 && query.length < 2) {
+                // Muestra mensaje para escribir más caracteres
+                suggestionsList.style.display = 'block';
+                const minCharsItem = document.createElement('li');
+                minCharsItem.classList.add('min-chars');
+                minCharsItem.textContent = 'Escribe al menos 2 caracteres';
+                suggestionsList.appendChild(minCharsItem);
             } else {
-                // Oculta la lista de sugerencias si el campo de búsqueda está vacío.
+                // Oculta la lista de sugerencias si el campo está vacío
                 suggestionsList.style.display = 'none';
             }
         });
 
-        // Añade un listener de evento para cerrar la lista de sugerencias al hacer clic fuera de ella.
+        // Añade un listener de evento para cerrar la lista al hacer clic fuera
         document.addEventListener('click', function(event) {
-            // Verifica si el clic ocurrió fuera del campo de búsqueda y la lista de sugerencias.
+            // Verifica si el clic ocurrió fuera del campo de búsqueda y la lista
             if (!searchBar.contains(event.target) && !suggestionsList.contains(event.target)) {
-                // Oculta la lista de sugerencias si se hace clic fuera de ella.
+                // Oculta la lista de sugerencias
                 suggestionsList.style.display = 'none';
+            }
+        });
+
+        // Listener para la tecla Escape
+        searchBar.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                suggestionsList.style.display = 'none';
+                searchBar.blur();
             }
         });
     }

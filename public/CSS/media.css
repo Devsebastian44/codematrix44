@@ -4,9 +4,9 @@
     text-decoration: none;
     color: white;
     margin-left: 20px;
-    display: flex; /* Cambiar de block a flex */
-    align-items: flex-start; /* Alinear al inicio */
-    gap: 10px; /* Espacio entre icono y texto */
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
     padding: 10px 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -14,9 +14,9 @@
 }
 
 .lista a i {
-    flex-shrink: 0; /* Evitar que el icono se comprima */
-    margin-right: 0; /* Remover margin ya que usamos gap */
-    padding-top: 2px; /* Pequeño ajuste para alineación vertical */
+    flex-shrink: 0;
+    margin-right: 0;
+    padding-top: 2px;
 }
 
 @media (min-width: 1025px) {
@@ -55,22 +55,27 @@
 		max-width: 700px;
 	}
 
+	/* Logo centrado para pantallas grandes */
 	.container-subtitulo {
 		display: flex;
+		flex-direction: column;
+		align-items: center;
 		justify-content: center;
-		width: 100%;
+		position: absolute;
+		top: 150px;
+		left: 50%;
+		transform: translateX(-50%);
+		gap: 10px;
 	}
 
 	.subtitulo {
-		margin-left: 0;
-		margin-top: 150px;
-		position: absolute;
+		margin: 0;
+		position: relative;
 	}
 
 	.blog {
-		margin-left: 0;
-		margin-top: 200px;
-		position: absolute;
+		margin: 0;
+		position: relative;
 	}
 
 	.search-container {
@@ -111,18 +116,28 @@
 		left: 5%;
 	}
 
-	.subtitulo {
-		margin-left: 0;
+	/* Logo centrado para tablets landscape */
+	.container-subtitulo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 150px;
 		left: 50%;
 		transform: translateX(-50%);
-		text-align: center;
+		gap: 10px;
+	}
+
+	.subtitulo {
+		margin: 0;
+		position: relative;
+		font-size: 48px;
 	}
 
 	.blog {
-		margin-left: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		text-align: center;
+		margin: 0;
+		position: relative;
 	}
 
 	.search-container {
@@ -238,19 +253,29 @@
 		width: 35vw;
 	}
 
-	.subtitulo {
-		margin-left: 0;
+	/* Logo centrado para tablets portrait */
+	.container-subtitulo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 130px;
 		left: 50%;
 		transform: translateX(-50%);
-		text-align: center;
+		gap: 8px;
+	}
+
+	.subtitulo {
+		margin: 0;
+		position: relative;
 		font-size: 40px;
 	}
 
 	.blog {
-		margin-left: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		text-align: center;
+		margin: 0;
+		position: relative;
+		font-size: 20px;
 	}
 
 	.Perfil {
@@ -415,22 +440,30 @@
 		height: 250px;
 	}
 
-	.subtitulo {
-		margin-left: 0;
+	/* Logo centrado para móviles */
+	.container-subtitulo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 100px;
 		left: 50%;
 		transform: translateX(-50%);
-		text-align: center;
+		gap: 8px;
+		width: 90%;
+	}
+
+	.subtitulo {
+		margin: 0;
+		position: relative;
 		font-size: 35px;
-		margin-top: 100px;
 	}
 
 	.blog {
-		margin-left: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		text-align: center;
-		margin-top: 150px;
-		font-size: 18px;
+		margin: 0;
+		position: relative;
+		font-size: 20px;
 	}
 
 	.Perfil {
@@ -492,7 +525,6 @@
 		object-fit: contain;
 	}
 
-	/* Categorías en móvil */
 	.categories {
 		margin: 20px auto;
 		padding: 10px;
@@ -584,15 +616,31 @@
 		width: 95%;
 	}
 
+	/* Logo centrado para móviles pequeños */
+	.container-subtitulo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 90px;
+		left: 50%;
+		transform: translateX(-50%);
+		gap: 6px;
+		width: 95%;
+	}
 
 	.subtitulo {
+		margin: 0;
+		position: relative;
 		font-size: 30px;
-		margin-top: 90px;
 	}
 
 	.blog {
-		font-size: 16px;
-		margin-top: 135px;
+		margin: 0;
+		position: relative;
+		font-size: 20px;
+		letter-spacing: 6px;
 	}
 
 	.nav {
@@ -619,7 +667,6 @@
 		object-fit: cover;
   }
 
-	/* Categorías móviles pequeños */
 	.categories {
 		width: 92%;
 		padding: 8px;
