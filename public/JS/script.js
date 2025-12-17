@@ -152,8 +152,8 @@ function renderPagination(page, totalPages) {
 function changePage(newPage) {
     window.blogData.currentPage = newPage;
     
-    // Actualizar URL
-    let newUrl = `/blog?page=${newPage}`;
+    // Actualizar URL - CAMBIADO de /blog a /index
+    let newUrl = `/index?page=${newPage}`;
     if (window.currentTag) {
         newUrl += `&tag=${window.currentTag}`;
     }
@@ -215,7 +215,8 @@ function filterByTag(tag) {
     if (window.currentTag === tag) {
         window.currentTag = null;
         clearActiveTags();
-        window.history.pushState({}, '', '/blog');
+        // CAMBIADO de /blog a /index
+        window.history.pushState({}, '', '/index');
         renderPosts(1);
         return;
     }
@@ -224,8 +225,8 @@ function filterByTag(tag) {
     window.currentTag = tag;
     updateActiveTag(tag);
     
-    // Actualizar URL
-    window.history.pushState({}, '', `/blog?tag=${tag}`);
+    // Actualizar URL - CAMBIADO de /blog a /index
+    window.history.pushState({}, '', `/index?tag=${tag}`);
     
     // Renderizar desde la página 1
     renderPosts(1);
