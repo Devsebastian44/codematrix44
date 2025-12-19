@@ -1,12 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 
-// Obtener todos los posts y eliminar duplicados por slug
+// Obtener todos los posts y eliminar duplicados por id
 const allPosts = await getCollection('blog');
 
-// Eliminar duplicados basándose en el slug
+// Eliminar duplicados basándose en el id (antes era slug)
 const uniquePosts = allPosts.filter((post, index, self) =>
-    index === self.findIndex((p) => p.slug === post.slug)
+    index === self.findIndex((p) => p.id === post.id)  // ⚠️ Cambió: post.slug → post.id
 );
 
 // Ordenar por fecha de publicación (más recientes primero)
@@ -21,7 +21,7 @@ const totalPages = Math.ceil(posts.length / postsPerPage);
 
 // Pasar todos los posts al cliente para manejar la paginación con JS
 const allPostsData = posts.map(post => ({
-    slug: post.slug,
+    slug: post.id,  // ⚠️ Cambió: post.slug → post.id
     title: post.data.title,
     description: post.data.description,
     category: post.data.category,
