@@ -5,6 +5,17 @@ import { getCollection } from 'astro:content';
 // Obtener todos los posts del blog
 const posts = await getCollection('blog');
 
+// 🔍 DEBUG: Ver qué tienen los posts
+console.log('=== DEBUG CATEGORIAS ===');
+console.log('Total posts:', posts.length);
+if (posts.length > 0) {
+    console.log('Primer post completo:', JSON.stringify(posts[0], null, 2));
+    console.log('post.id:', posts[0].id);
+    console.log('post.slug:', posts[0].slug);
+    console.log('post.data.title:', posts[0].data.title);
+}
+console.log('=======================');
+
 // Agrupar posts por categoría
 const categorias = posts.reduce((acc, post) => {
     const categoria = post.data.category || 'Sin categoría';
@@ -13,10 +24,11 @@ const categorias = posts.reduce((acc, post) => {
         acc[categoria] = [];
     }
     
+    // ✅ USAR post.id en lugar de post.slug
     acc[categoria].push({
         titulo: post.data.title,
-        slug: post.slug,
-        url: `/blog/${post.slug}`
+        slug: post.id,  // ⚠️ CAMBIO CRÍTICO: usar post.id
+        url: `/blog/${post.id}`  // ⚠️ CAMBIO CRÍTICO: usar post.id
     });
     
     return acc;
@@ -27,6 +39,16 @@ const categoriasArray = Object.entries(categorias).map(([nombre, posts]) => ({
     nombre,
     posts
 }));
+
+// Preparar datos para JavaScript (para la búsqueda)
+const allPostsData = posts.map(post => ({
+    slug: post.id,  // ⚠️ IMPORTANTE: usar post.id
+    title: post.data.title,
+    description: post.data.description || '',
+    category: post.data.category || 'Sin categoría',
+    image: post.data.image || '/default-image.jpg',
+    tags: post.data.tags || []
+}));
 ---
 
 <!DOCTYPE html>
@@ -36,7 +58,7 @@ const categoriasArray = Object.entries(categorias).map(([nombre, posts]) => ({
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO Básico -->
-<title>CodeMatrix</title>
+<title>CodeMatrix - Categorías</title>
 <meta name="description" content="CodeMatrix44 es un blog sobre Programación, Ciberseguridad, Ethical Hacking, Ciencia de Datos e Inteligencia Artificial. Tutoriales, herramientas y análisis técnicos.">
 <meta name="keywords" content="programación, desarrollo de software, ciberseguridad, hacking ético, pentesting, análisis de malware, data science, machine learning, inteligencia artificial, python, sql, redes">
 <meta name="author" content="devsebastian44">
@@ -45,7 +67,7 @@ const categoriasArray = Object.entries(categorias).map(([nombre, posts]) => ({
 <link rel="icon" href="/Icono.ico" type="image/x-icon">
 
 <!-- URL Canónica -->
-<link rel="canonical" href="https://codematrix44.vercel.app/">
+<link rel="canonical" href="https://codematrix44.vercel.app/categorias">
 
 <!-- Open Graph (Redes Sociales) -->
 <meta property="og:title" content="CodeMatrix44 | Programación, Ciberseguridad & IA">
@@ -147,49 +169,61 @@ const categoriasArray = Object.entries(categorias).map(([nombre, posts]) => ({
                 </div>
             </div>
 
-<!-- Card de Tags -->
-<div class="tags-card">
-    <h3 class="tags-title">
-        <i class="fa-solid fa-tags"></i> Tags
-    </h3>
-    <div class="tags-container">
-        <a href="/?tag=programacion" class="tag" data-tag="programación">Programación</a>
-        <a href="/?tag=ciberseguridad" class="tag" data-tag="ciberseguridad">Ciberseguridad</a>
-        <a href="/?tag=ia" class="tag" data-tag="ia">IA</a>
-        <a href="/?tag=ciencia-datos" class="tag" data-tag="ciencia-datos">Ciencia de Datos</a>
-    </div>
-</div>
+            <!-- Card de Tags -->
+            <div class="tags-card">
+                <h3 class="tags-title">
+                    <i class="fa-solid fa-tags"></i> Tags
+                </h3>
+                <div class="tags-container">
+                    <a href="/?tag=programacion" class="tag" data-tag="programación">Programación</a>
+                    <a href="/?tag=ciberseguridad" class="tag" data-tag="ciberseguridad">Ciberseguridad</a>
+                    <a href="/?tag=ia" class="tag" data-tag="ia">IA</a>
+                    <a href="/?tag=ciencia-datos" class="tag" data-tag="ciencia-datos">Ciencia de Datos</a>
+                </div>
+            </div>
         </div>
 
-<div class="categories">
-    {categoriasArray.map(({ nombre, posts }) => (
-        <div class="categoria">
-            <div class="Tema">
-                <i class="fa-solid fa-folder-open"></i> {nombre}
-            </div>
-            {posts.map(post => (
-                <div class="lista">
-                    <a href={post.url}>
-                        <i class="fa-solid fa-folder"></i> {post.titulo}
-                    </a>
+        <div class="categories">
+            {categoriasArray.map(({ nombre, posts }) => (
+                <div class="categoria">
+                    <div class="Tema">
+                        <i class="fa-solid fa-folder-open"></i> {nombre}
+                    </div>
+                    {posts.map(postItem => (
+                        <div class="lista">
+                            <a href={postItem.url}>
+                                <i class="fa-solid fa-folder"></i> {postItem.titulo}
+                            </a>
+                        </div>
+                    ))}
                 </div>
             ))}
         </div>
-    ))}
-</div>
     </div>
 
     <footer class="footer">
-  <div class="footer__divider" aria-hidden="true"></div>
-  <span class="copyright">
-    Copyright© 2024 | Todos los derechos reservados | 
-    <a class="copyright__link" href="https://devsebastian44.example" target="_blank" rel="noopener noreferrer">devsebastian44</a>
-  </span>
-</footer>
+        <div class="footer__divider" aria-hidden="true"></div>
+        <span class="copyright">
+            Copyright© 2024 | Todos los derechos reservados | 
+            <a class="copyright__link" href="https://github.com/devsebastian44" target="_blank" rel="noopener noreferrer">devsebastian44</a>
+        </span>
+    </footer>
 
     <!-- Scripts -->
     <script src="/JS/particles.min.js" is:inline></script>
     <script src="/JS/app.js" is:inline></script>
+    
+    <!-- ✅ Pasar datos de posts a JavaScript para la búsqueda -->
+    <script define:vars={{ allPostsData }}>
+        // Variables globales para la búsqueda
+        window.blogData = {
+            posts: allPostsData,
+            postsPerPage: 6,
+            totalPages: Math.ceil(allPostsData.length / 6),
+            currentPage: 1
+        };
+    </script>
+    
     <script src="/JS/script.js" is:inline></script>
 </body>
 </html>
