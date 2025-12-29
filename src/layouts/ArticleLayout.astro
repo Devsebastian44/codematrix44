@@ -1,4 +1,8 @@
 ---
+import "../Styles/normalize.css";
+import "../Styles/estilo.css";
+import "../Styles/media.css";
+
 const { post } = Astro.props;
 
 // Formatear la fecha
@@ -20,9 +24,6 @@ const formatDate = (date) => {
   <title>CodeMatrix</title>
 
   <link rel="icon" href="/Icono.ico">
-  <link rel="stylesheet" href="/CSS/normalize.css">
-  <link rel="stylesheet" href="/CSS/estilo.css">
-  <link rel="stylesheet" href="/CSS/media.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -137,9 +138,16 @@ const formatDate = (date) => {
 </footer>
 
   <!-- SCRIPTS -->
-  <script src="/JS/script.js" is:inline></script>
-  <script src="/JS/particles.min.js" is:inline></script>
-  <script src="/JS/app.js" is:inline></script>
+<script src="/JS/script.js" defer></script>
+
+<script
+  src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"
+  type="module">
+</script>
+
+<script src="/JS/particles.min.js" defer></script>
+<script src="/JS/app.js" defer></script>
+
 
 </body>
 </html>

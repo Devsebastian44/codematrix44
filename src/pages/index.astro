@@ -1,4 +1,8 @@
 ---
+import "../Styles/normalize.css";
+import "../Styles/estilo.css";
+import "../Styles/media.css";
+
 import { getCollection } from 'astro:content';
 
 // Obtener todos los posts y eliminar duplicados por id
@@ -62,10 +66,6 @@ const allPostsData = posts.map(post => ({
 <meta name="twitter:description" content="Blog técnico sobre Programación, Ciberseguridad, Ciencia de Datos e Inteligencia Artificial.">
 <meta name="twitter:image" content="https://codematrix44.vercel.app/og-image.png">
 
-<!-- CSS -->
-<link rel="stylesheet" href="/CSS/normalize.css">
-<link rel="stylesheet" href="/CSS/estilo.css">
-<link rel="stylesheet" href="/CSS/media.css">
 
 <!-- Librerías -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -187,10 +187,16 @@ const allPostsData = posts.map(post => ({
     </script>
 
     <!-- JS -->
-    <script src="/JS/script.js" is:inline></script>
-    <script src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js" type="module" is:inline></script>
-    <script src="/JS/particles.min.js" is:inline></script>
-    <script src="/JS/app.js" is:inline></script>
+<script src="/JS/script.js" defer></script>
+
+<script
+  src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"
+  type="module">
+</script>
+
+<script src="/JS/particles.min.js" defer></script>
+<script src="/JS/app.js" defer></script>
+
 
 </body>
 </html>
