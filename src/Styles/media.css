@@ -27,10 +27,13 @@
 		max-width: 1400px;
 		margin: 0 auto;
 		margin-top: -100px;
+		padding: 0 20px;
+		box-sizing: border-box;
 	}
 
 	.Home {
 		order: 2;
+		max-width: 100%;
 	}
 
 	.Perfil {
@@ -41,6 +44,7 @@
 	.item {
 		margin-left: 40px;
 		max-width: 890px;
+		box-sizing: border-box;
 	}
 
 	.form {
@@ -55,7 +59,6 @@
 		max-width: 700px;
 	}
 
-	/* Logo centrado para pantallas grandes */
 	.container-subtitulo {
 		display: flex;
 		flex-direction: column;
@@ -91,11 +94,14 @@
 		flex-direction: column;
 		align-items: center;
 		margin-top: -100px;
+		padding: 0 20px;
+		box-sizing: border-box;
 	}
 
 	.Home {
 		order: 1;
 		width: 100%;
+		max-width: 100%;
 	}
 
 	.sidebar {
@@ -103,6 +109,7 @@
 		margin: 40px auto 0;
 		width: 85%;
 		max-width: 700px;
+		box-sizing: border-box;
 	}
 
 	.tags-card {
@@ -114,9 +121,9 @@
 	.nav {
 		width: 90%;
 		left: 5%;
+		box-sizing: border-box;
 	}
 
-	/* Logo centrado para tablets landscape */
 	.container-subtitulo {
 		display: flex;
 		flex-direction: column;
@@ -155,6 +162,7 @@
 		margin: 0 auto;
 		margin-bottom: 20px;
 		float: none;
+		box-sizing: border-box;
 	}
 	
 	.Logo {
@@ -175,6 +183,7 @@
 		flex-direction: column;
 		width: 85%;
 		max-width: 700px;
+		box-sizing: border-box;
 	}
 
 	.Articulo {
@@ -182,6 +191,7 @@
 		width: 85%;
 		max-width: 700px;
 		padding-right: 20px;
+		box-sizing: border-box;
 	}
 
 	.Articulo h2 {
@@ -192,10 +202,12 @@
 		margin: 35px auto;
 		padding: 20px;
 		width: 92%;
+		box-sizing: border-box;
 	}
 
 	.categoria {
 		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.no-results-message {
@@ -203,6 +215,7 @@
 		max-width: 700px;
 		margin-left: auto;
 		margin-right: auto;
+		box-sizing: border-box;
 	}
 
 	.pagination {
@@ -217,17 +230,21 @@
 		flex-direction: column;
 		align-items: center;
 		margin-top: -100px;
+		padding: 0 10px;
+		box-sizing: border-box;
 	}
 
 	.Home {
 		order: 1;
 		width: 100%;
+		max-width: 100%;
 	}
 
 	.sidebar {
 		order: 2;
 		margin: 40px auto 0;
 		width: 85%;
+		box-sizing: border-box;
 	}
 
 	.tags-card {
@@ -239,6 +256,7 @@
 		width: 90%;
 		left: 5%;
 		padding: 10px;
+		box-sizing: border-box;
 	}
 
 	.search-container {
@@ -254,7 +272,6 @@
 		width: 35vw;
 	}
 
-	/* Logo centrado para tablets portrait */
 	.container-subtitulo {
 		display: flex;
 		flex-direction: column;
@@ -284,6 +301,7 @@
 		margin: 0 auto;
 		margin-bottom: 20px;
 		float: none;
+		box-sizing: border-box;
 	}
 
 	.tags-card {
@@ -308,12 +326,14 @@
 		display: flex;
 		flex-direction: column;
 		width: 85%;
+		box-sizing: border-box;
 	}
 
 	.Articulo {
 		margin: 50px 20px 0;
 		width: calc(100% - 40px);
 		padding-right: 0;
+		box-sizing: border-box;
 	}
 
 	.Articulo h2 {
@@ -329,19 +349,23 @@
 		margin: 35px auto;
 		padding: 15px;
 		width: 92%;
+		box-sizing: border-box;
 	}
 
 	.categoria {
 		width: 100%;
 		overflow: hidden;
+		box-sizing: border-box;
 	}
 
 	.Tema {
 		padding: 18px;
+		box-sizing: border-box;
 	}
 
 	.lista {
 		padding: 12px 18px;
+		box-sizing: border-box;
 	}
 
 	.lista a {
@@ -355,10 +379,17 @@
 		width: 85%;
 		margin-left: auto;
 		margin-right: auto;
+		box-sizing: border-box;
 	}
 
 	.pagination {
 		width: 100%;
+	}
+
+	pre {
+		max-width: 100%;
+		overflow-x: auto;
+		box-sizing: border-box;
 	}
 }
 
@@ -369,17 +400,21 @@
 		flex-direction: column;
 		align-items: center;
 		margin-top: -50px;
+		padding: 0;
+		box-sizing: border-box;
 	}
 
 	.Home {
 		order: 1;
 		width: 100%;
+		max-width: 100%;
 	}
 
 	.sidebar {
 		order: 2;
 		margin: 40px auto 0;
 		width: 90%;
+		box-sizing: border-box;
 	}
 
 	.tags-card {
@@ -395,6 +430,7 @@
 		height: auto;
 		justify-content: flex-start;
 		gap: 5px;
+		box-sizing: border-box;
 	}
 
 	.nav__responsive-buttom {
@@ -439,9 +475,9 @@
 
 	#particles-js {
 		height: 250px;
+		max-width: 100vw;
 	}
 
-	/* Logo centrado para móviles */
 	.container-subtitulo {
 		display: flex;
 		flex-direction: column;
@@ -474,6 +510,7 @@
 		width: 100%;
 		max-width: 250px;
 		margin-bottom: 20px;
+		box-sizing: border-box;
 	}
 
 	.Logo {
@@ -492,16 +529,19 @@
 		display: flex;
 		flex-direction: column;
 		width: 90%;
+		box-sizing: border-box;
 	}
 
 	.item-texto {
 		padding: 15px;
+		box-sizing: border-box;
 	}
 
 	.Articulo {
 		margin: 30px 15px 0;
 		width: calc(100% - 30px);
 		padding-right: 0;
+		box-sizing: border-box;
 	}
 
 	.Articulo h2 {
@@ -518,6 +558,7 @@
 		width: 100%;
 		overflow-x: auto;
 		font-size: 12px;
+		box-sizing: border-box;
 	}
 
 	#arp {
@@ -530,17 +571,20 @@
 		margin: 20px auto;
 		padding: 10px;
 		width: 92%;
+		box-sizing: border-box;
 	}
 
 	.categoria {
 		width: 100%;
 		margin-bottom: 20px;
 		overflow: hidden;
+		box-sizing: border-box;
 	}
 
 	.Tema {
 		padding: 15px;
 		font-size: 16px;
+		box-sizing: border-box;
 	}
 
 	.Tema i {
@@ -550,6 +594,7 @@
 
 	.lista {
 		padding: 10px 15px;
+		box-sizing: border-box;
 	}
 
     .lista a {
@@ -575,6 +620,7 @@
 		margin-left: auto;
 		margin-right: auto;
 		padding: 40px 20px;
+		box-sizing: border-box;
 	}
 
 	.no-results-message i {
@@ -605,6 +651,8 @@
 		flex-direction: column;
 		align-items: center;
 		margin-top: -50px;
+		padding: 0;
+		box-sizing: border-box;
 	}
 
 	.Home {
@@ -615,9 +663,9 @@
 		order: 2;
 		margin: 40px auto 0;
 		width: 95%;
+		box-sizing: border-box;
 	}
 
-	/* Logo centrado para móviles pequeños */
 	.container-subtitulo {
 		display: flex;
 		flex-direction: column;
@@ -646,6 +694,7 @@
 
 	.nav {
 		padding: 8px 3px;
+		box-sizing: border-box;
 	}
 
 	.search-bar {
@@ -656,6 +705,7 @@
 		width: 95%;
 		font-size: 12px;
 		margin: 20px auto 0;
+		box-sizing: border-box;
 	}
 
 	.Logo {
@@ -666,25 +716,29 @@
 		width: 100%;
 		height: auto;
 		object-fit: cover;
-  }
+	}
 
 	.categories {
 		width: 92%;
 		padding: 8px;
+		box-sizing: border-box;
 	}
 
 	.categoria {
 		width: 100%;
 		margin-bottom: 18px;
+		box-sizing: border-box;
 	}
 
 	.Tema {
 		padding: 12px;
 		font-size: 15px;
+		box-sizing: border-box;
 	}
 
 	.lista {
 		padding: 8px 12px;
+		box-sizing: border-box;
 	}
 
 	.lista a {
@@ -696,6 +750,7 @@
 	.no-results-message {
 		width: 95%;
 		padding: 30px 15px;
+		box-sizing: border-box;
 	}
 
 	.pagination-btn,
